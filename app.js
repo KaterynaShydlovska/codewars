@@ -50,3 +50,30 @@ function findOdd(A) {
 // function findOdd(A) {
    // return A.reduce(function (c, v) { return c ^ v; }, 0);
 // }
+
+
+
+
+// Challenge -3
+// Given two integers a and b, which can be positive or negative, find the sum of all the numbers between including them too and return it. If the two numbers are equal return a or b.
+
+// Note: a and b are not ordered!
+
+function getSum(a, b) {
+  let count = 0;
+  if (a === b) {
+    return a;
+  }
+  else if (a < b) {
+    for (a; a <= b; a++) {
+      count += a;
+    }
+  }
+  else if (b < a) {
+    for (b; b <= a; b++) {
+      count += b;
+    }
+  }
+
+  return count;
+}
