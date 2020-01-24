@@ -93,3 +93,93 @@ function sortArray(array) {
   return array
     .map(x => x % 2 ? odds.shift() : x);
 }
+
+
+// If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+// Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
+
+//   Note: If the number is a multiple of both 3 and 5, only count it once.
+
+function solution(number) {
+  let sum = 0;
+  for (i = 0; i < number; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      sum = sum + i;
+    };
+  }
+  return sum;
+}
+
+//////////////////////////////////////////
+
+let characters = [
+  {
+    name: 'Eddard',
+    spouse: 'Catelyn',
+    children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'],
+    house: 'Stark'
+  },
+  {
+    name: 'Jon A.',
+    spouse: 'Lysa',
+    children: ['Robin'],
+    house: 'Arryn'
+  },
+  {
+    name: 'Cersei',
+    spouse: 'Robert',
+    children: ['Joffrey', 'Myrcella', 'Tommen'],
+    house: 'Lannister'
+  },
+  {
+    name: 'Daenarys',
+    spouse: 'Khal Drogo',
+    children: ['Drogon', 'Rhaegal', 'Viserion'],
+    house: 'Targaryen'
+  },
+  {
+    name: 'Mace',
+    spouse: 'Alerie',
+    children: ['Margaery', 'Loras'],
+    house: 'Tyrell'
+  },
+  {
+    name: 'Euron',
+    spouse: null,
+    children: [],
+    house: 'Greyjoy'
+  },
+  {
+    name: 'Jon S.',
+    spouse: null,
+    children: [],
+    house: 'Snow'
+  }
+];
+
+const getHouses = (arr) => {
+  let houses = [];
+  // Solution code here...
+  return houses;
+};
+
+const totalCharacters = (arr) => {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(arr[i].name);
+    if (arr[i].children.length) {
+      newArr.push(arr[i].children);
+    }
+    if (arr[i].spouse !== null) {
+      newArr.push(arr[i].spouse);
+    }
+  }
+  let stringArray = newArr.toString();
+  let oneArray = stringArray.split(',')
+  let arrayLength = oneArray.length;
+  console.log(arrayLength)
+  return arrayLength;
+};
+
+totalCharacters(characters);
