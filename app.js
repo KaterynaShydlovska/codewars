@@ -77,3 +77,137 @@ function getSum(a, b) {
 
   return count;
 }
+
+
+
+// Challenge -4
+// You have an array of numbers.
+// Your task is to sort ascending odd numbers but even numbers must be on their places.
+
+// Zero isn't an odd number and you don't need to move it.If you have an empty array, you need to return it.
+function sortArray(array) {
+  const odds = array
+    .filter(x => x % 2)
+    .sort((a, b) => a - b);
+
+  return array
+    .map(x => x % 2 ? odds.shift() : x);
+}
+
+
+// If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+// Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
+
+//   Note: If the number is a multiple of both 3 and 5, only count it once.
+
+function solution(number) {
+  let sum = 0;
+  for (i = 0; i < number; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      sum = sum + i;
+    };
+  }
+  return sum;
+}
+
+//////////////////////////////////////////
+
+let characters = [
+  {
+    name: 'Eddard',
+    spouse: 'Catelyn',
+    children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'],
+    house: 'Stark'
+  },
+  {
+    name: 'Jon A.',
+    spouse: 'Lysa',
+    children: ['Robin'],
+    house: 'Arryn'
+  },
+  {
+    name: 'Cersei',
+    spouse: 'Robert',
+    children: ['Joffrey', 'Myrcella', 'Tommen'],
+    house: 'Lannister'
+  },
+  {
+    name: 'Daenarys',
+    spouse: 'Khal Drogo',
+    children: ['Drogon', 'Rhaegal', 'Viserion'],
+    house: 'Targaryen'
+  },
+  {
+    name: 'Mace',
+    spouse: 'Alerie',
+    children: ['Margaery', 'Loras'],
+    house: 'Tyrell'
+  },
+  {
+    name: 'Euron',
+    spouse: null,
+    children: [],
+    house: 'Greyjoy'
+  },
+  {
+    name: 'Jon S.',
+    spouse: null,
+    children: [],
+    house: 'Snow'
+  }
+];
+
+const getHouses = (arr) => {
+  let houses = [];
+  // Solution code here...
+  return houses;
+};
+
+const totalCharacters = (arr) => {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(arr[i].name);
+    if (arr[i].children.length) {
+      newArr.push(arr[i].children);
+    }
+    if (arr[i].spouse !== null) {
+      newArr.push(arr[i].spouse);
+    }
+  }
+  let stringArray = newArr.toString();
+  let oneArray = stringArray.split(',')
+  let arrayLength = oneArray.length;
+  console.log(arrayLength)
+  return arrayLength;
+};
+
+totalCharacters(characters);
+
+
+
+//////////////////////////////////////////////////////
+//sort
+
+function countSort(array) {
+  var hash = {}, countArr = [];
+  for (var i = 0; i < array.length; i++) {
+    if (!hash[array[i]]) {
+      hash[array[i]] = 1;
+    } else if (hash[array[i]] === 3) {
+      hash[array[i]] += 0;
+    } else {
+      hash[array[i]]++;
+    }
+  }
+
+  for (var key in hash) {
+    // for any number of _ element, add it to array
+    for (var i = 0; i < hash[key]; i++) {
+      countArr.push(parseInt(key));
+    }
+  }
+
+  return countArr;
+}
+countSort([6, 1, 23, 2, 3, 2, 1, 2, 2, 3, 3, 1, 123, 123, 4, 2, 3]); // [1, 2, 3, 4, 6, 23]
