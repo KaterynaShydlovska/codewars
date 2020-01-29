@@ -211,3 +211,129 @@ function countSort(array) {
   return countArr;
 }
 countSort([6, 1, 23, 2, 3, 2, 1, 2, 2, 3, 3, 1, 123, 123, 4, 2, 3]); // [1, 2, 3, 4, 6, 23]
+////////////////////////////////////////
+
+// Given a sorted(in ascending order) integer array nums of n elements and a target value, write a function to search target in nums.If target exists, then return its index, otherwise return -1.
+
+
+// Example 1:
+
+// Input: nums = [-1, 0, 3, 5, 9, 12], target = 9
+// Output: 4
+// Explanation: 9 exists in nums and its index is 4
+
+
+var search = function (nums, target) {
+  let start = 0;
+  let end = nums.length - 1;
+  while (start <= end) {
+
+    let mid = Math.floor((start + end) / 2);
+    if (nums[mid] === target) {
+      return mid;
+    } else if (nums[mid] < target) {
+      start = mid + 1;
+    } else {
+      end = mid - 1;
+    }
+
+  }
+}
+
+search([1, 2, 3, 4, 5, 6, 9], 3);
+
+
+//with for loop
+function search(nums, target) {
+  let middle;
+  if (nums.length % 2 === 0) {
+    middle = nums.length / 2;
+  } else {
+    middle = (nums.length + 1) / 2;
+    console.log('here is', middle);
+  }
+  if (nums[middle] === target) {
+    return middle;
+  } else if (nums[middle] > target) {
+    for (let i = middle; i < nums.length; i++) {
+      if (nums[i] === target) {
+        return i
+      } else {
+        for (let j = middle; j > 0; j--) {
+          if (nums[j] === target) {
+            return j
+          }
+        }
+      }
+    }
+  }
+  return false;
+};
+search(nums, target);
+
+
+
+
+// buble sort
+
+arr=[1,4,6,8,2,10,3,5];
+
+function swap(arr, index1, index2) {
+      let temp = arr[index1];
+      arr[index1] = arr[index2];
+      // console.log(arr[index1], arr[index2])
+      arr[index2] = temp;
+  }
+
+
+function bubleSort(arr){
+  for(let i=0; i<arr.length; i++) {
+    for(j=0; j<=i;j++){
+      if(arr[i]< arr[j]){
+        swap(arr,i,j);
+      }
+    }
+  }
+  return arr
+
+};
+bubleSort(arr);
+
+
+
+// selection sort
+
+items = [1, 4, 6, 8, 2, 10, 3, 5, 7, 20, 15];
+
+function swap(items, index1, index2) {
+  let temp = items[index1];
+  // console.log(temp)
+  items[index1] = items[index2];
+  // console.log(arr[index1], arr[index2])
+  items[index2] = temp;
+}
+
+function selectionSort(items) {
+  var len = items.length,
+    min;
+
+  for (var i = 0; i < len; i++) {
+    // set minimum to this position
+    min = i;
+    //check the rest of the array to see if anything is smaller
+    for (j = i + 1; j < len; j++) {
+      if (items[j] < items[min]) {
+        min = j;
+      }
+    }
+    //if the minimum isn't in the position, swap it
+    if (i != min) {
+      swap(items, i, min);
+    }
+  }
+
+  return items;
+}
+
+selectionSort(items);
+
