@@ -415,7 +415,7 @@ quickSelectInPlace(array, 0, array.length - 1, 5);
 /////////////////////////////////////////////////
 //  quick Sort
 
-unction quickSort(items) {
+function quickSort(items) {
   return quickSortHelper(items, 0, items.length - 1);
 }
 
@@ -457,4 +457,18 @@ function partition(array, left, right) {
 }
 
 quickSort([6, 1, 23, 4, 2, 3]);
+
+
+// FIND IF TWO ELEMENTS OF AN ARRAY ADD UP TO A GIVEN NUMBER
+// The simple approach to this problem is to check every other element for each element in the array.
+function findTwoSum(array, sum) {
+  for (var i = 0, arrayLength = array.length; i < arrayLength; i++) {
+    for (var j = i + 1; j < arrayLength; j++) {
+      if (array[j] + array[i] == sum) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
 
