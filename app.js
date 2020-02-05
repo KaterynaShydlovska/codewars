@@ -337,3 +337,124 @@ function selectionSort(items) {
 
 selectionSort(items);
 
+//  Insertion Sort
+
+function insertionSort(items) {
+  var len = items.length,
+    value,              // the value currently being compared
+    i,                  // index into unsorted section
+    j;                  // index into sorted section
+  for (i = 0; i < len; i++) {
+    // store the current value because it may shift later
+    value = items[i];
+
+    // Whenever the value in the sorted section is greater than the value
+    // in the unsorted section, shift all items in the sorted section
+    // over by one. This creates space in which to insert the value.
+    for (j = i - 1; j > -1 && items[j] > value; j--) {
+      items[j + 1] = items[j];
+    }
+    items[j + 1] = value;
+  }
+  return items;
+}
+insertionSort([6, 1, 23, 4, 2, 3]); // [1, 2, 3, 4, 6, 23]
+
+
+//////////////////////////
+//Merge Sort
+function merge(leftA, rightA) {
+  var results = [], leftIndex = 0, rightIndex = 0;
+  while (leftIndex < leftA.length && rightIndex < rightA.length) {
+    if (leftA[leftIndex] < rightA[rightIndex]) {
+      results.push(leftA[leftIndex++]);
+    } else {
+      results.push(rightA[rightIndex++]);
+    }
+  }
+  var leftRemains = leftA.slice(leftIndex),
+    rightRemains = rightA.slice(rightIndex);
+  return results.concat(leftRemains).concat(rightRemains);
+}
+
+function mergeSort(array) {
+  if (array.length < 2) {
+    return array;
+  }
+  var midpoint = Math.floor((array.length) / 2),
+    leftArray = array.slice(0, midpoint),
+    rightArray = array.slice(midpoint);
+
+  return merge(mergeSort(leftArray), mergeSort(rightArray));
+}
+mergeSort([6, 1, 23, 4, 2, 3]); // [1, 2, 3, 4, 6, 23]
+/////////////////////////////////////////////////////////////////
+//Quickselect
+
+var array = [1, 3, 3, -2, 3, 14, 7, 8, 1, 2, 2];
+
+function quickSelectInPlace(A, l, h, k) {
+  var p = partition(A, l, h);
+  if (p == (k - 1)) {
+    return A[p];
+  } else if (p > (k - 1)) {
+    return quickSelectInPlace(A, l, p - 1, k);
+  } else {
+    return quickSelectInPlace(A, p + 1, h, k);
+  }
+}
+
+function medianQuickselect(array) {
+  return quickSelectInPlace(array, 0, array.length - 1, Math.
+    floor(array.length / 2));
+}
+
+quickSelectInPlace(array, 0, array.length - 1, 5);
+
+
+/////////////////////////////////////////////////
+//  quick Sort
+
+unction quickSort(items) {
+  return quickSortHelper(items, 0, items.length - 1);
+}
+
+function quickSortHelper(items, left, right) {
+  var index;
+  if (items.length > 1) {
+    index = partition(items, left, right);
+
+    if (left < index - 1) {
+
+      quickSortHelper(items, left, index - 1);
+    }
+
+    if (index < right) {
+      quickSortHelper(items, index, right);
+    }
+  }
+  return items;
+}
+
+function partition(array, left, right) {
+  var pivot = array[Math.floor((right + left) / 2)];
+  while (left <= right) {
+    while (pivot > array[left]) {
+      left++;
+    }
+    while (pivot < array[right]) {
+      right--;
+    }
+    if (left <= right) {
+      var temp = array[left];
+      array[left] = array[right];
+      array[right] = temp;
+      left++;
+      right--;
+    }
+  }
+  return left;
+}
+
+quickSort([6, 1, 23, 4, 2, 3]);
+
