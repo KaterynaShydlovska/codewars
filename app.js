@@ -472,3 +472,64 @@ function findTwoSum(array, sum) {
   return false;
 }
 
+
+function findSumOfTwo(array, sum) {
+  var store = {};
+
+  for (var i = 0, arrayLength = array.length; i < arrayLength; i++) {
+    if (store[array[i]]) {
+      return true;
+    } else {
+      store[sum - array[i]] = array[i];
+    }
+  }
+  return false;
+}
+
+findSumOfTwo([1, 5, 7, 6, 9], 20);
+
+// binary search
+let arr = [1, 1, 2, 2, 3, 3, 5, 4, 4];
+let n = 5;
+function binarySearch(arr, n) {
+  let lowIndex = 0, highIndex = arr.length - 1;
+  while (lowIndex <= highIndex) {
+    let midIndex = Math.floor((highIndex + lowIndex) / 2);
+    if (midIndex == n) {
+      return midIndex;
+    } else if (n > arr[midIndex]) {
+      lowIndex = midIndex;
+    } else {
+      highIndex = midIndex;
+    }
+  }
+  return false;
+}
+
+
+binarySearch(arr, n);
+
+
+
+// Your task is to remove all duplicate words from a string, leaving only single(first) words entries.
+
+//   Example:
+
+// Input:
+
+// 'alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta'
+
+// Output:
+
+// 'alpha beta gamma delta'
+
+function removeDuplicateWords(s) {
+  let obj = {};
+  let newS = s.split(' ');
+  newS.forEach((element) => {
+
+    obj[element] = true;
+  });
+  return Object.keys(obj).join(' ');
+}
+
