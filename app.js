@@ -561,7 +561,7 @@ function removeDuplicateWords(s) {
 //   return -1;
 // }
 
-binarySearch(arr, n);
+// binarySearch(arr, n);
 
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // let n= 9;
@@ -608,9 +608,39 @@ binarySearch(0, arr.length - 1, arr);
 // Sum of digits = 2 + 3 + 4 = 9
 // Result = 24 - 9 = 15
 
-function difference(n) {
+
+  let n = 555;
+
+  function difference(n) {
+    let sum = 0;
+    let mult = 1;
+    let nums = n.toString().split('');
+    console.log(nums);
+    for (let i = 0; i < nums.length; i++) {
+      sum += parseInt(nums[i]);
+      mult *= parseInt(nums[i]);
+
+    }
+    // console.log(sum)
+
+    return (mult - sum);
+  }
+
+difference(n);
   
+function test(str) {
+  let add = 0
+  let mult = 1
+  let numbers = str.split().forEach(el => {
+    add += parseInt(el);
+    mult = mult * parseInt(el);
+  });
+  console.log(mult, add)
+  return mult - add;
 }
+test("6655");
+
+  
 
 
 // Given a non-negative integer num, return the number of steps to reduce it to zero. If the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
