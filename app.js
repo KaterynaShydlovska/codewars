@@ -537,31 +537,63 @@ function removeDuplicateWords(s) {
 
 // binary search
 
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-// let n= 9;
-// let n= 10;
-// let n = 4;
-let n = 8;
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// // let n= 9;
+// // let n= 10;
+// // let n = 4;
+// let n = 8;
 
-function binarySearch(arr, n) {
-  let first = 0;
-  let last = arr.length - 1;
-  let mid = Math.floor((first + last) / 2);
-  //  console.log('here is', arr[mid])
-  console.log('arr', mid);
-  if (n === arr[mid]) {
-    console.log('arr', mid);
-    return arr[mid];
-  } else if (n < arr[mid]) {
-    return binarySearch(arr.slice(0, mid), n);
-  } else {
-    return binarySearch(arr.slice(mid + 1, arr.length - 1), n);
-    console.log(arr)
-  }
-  return -1;
-}
+// function binarySearch(arr, n) {
+//   let first = 0;
+//   let last = arr.length - 1;
+//   let mid = Math.floor((first + last) / 2);
+//   //  console.log('here is', arr[mid])
+//   console.log('arr', mid);
+//   if (n === arr[mid]) {
+//     console.log('arr', mid);
+//     return arr[mid];
+//   } else if (n < arr[mid]) {
+//     return binarySearch(arr.slice(0, mid), n);
+//   } else {
+//     return binarySearch(arr.slice(mid + 1, arr.length - 1), n);
+//     console.log(arr)
+//   }
+//   return -1;
+// }
 
 binarySearch(arr, n);
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// let n= 9;
+let n = 11;
+// let n = 4;
+// let n = 8;
+
+function binarySearch(first, last, arr) {
+  // let first = 0;
+  // let last = arr.length-1;
+  let mid = Math.floor((first + last) / 2);
+  console.log(mid, first, last);
+  if (n === arr[mid]) {
+    // console.log('arr', mid);  
+    return arr[mid];
+  } else if (first > last) {
+    return false;s
+  }
+
+  else if (n < arr[mid]) {
+    return binarySearch(0, mid, arr);
+  } else {
+    return binarySearch(mid + 1, arr.length - 1, arr);
+  }
+}
+
+binarySearch(0, arr.length - 1, arr);
+
+
+
+
+
 
 
 // Given an integer number n, return the difference between the product of its digits and the sum of its digits.
