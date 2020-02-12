@@ -95,6 +95,7 @@ function sortArray(array) {
 }
 
 
+// // Challenge -5
 // If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 
 // Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
@@ -112,6 +113,7 @@ function solution(number) {
 }
 
 //////////////////////////////////////////
+// // Challenge -6
 
 let characters = [
   {
@@ -188,6 +190,7 @@ totalCharacters(characters);
 
 //////////////////////////////////////////////////////
 //sort
+// // Challenge -7
 
 function countSort(array) {
   var hash = {}, countArr = [];
@@ -212,6 +215,8 @@ function countSort(array) {
 }
 countSort([6, 1, 23, 2, 3, 2, 1, 2, 2, 3, 3, 1, 123, 123, 4, 2, 3]); // [1, 2, 3, 4, 6, 23]
 ////////////////////////////////////////
+
+// // Challenge -8
 
 // Given a sorted(in ascending order) integer array nums of n elements and a target value, write a function to search target in nums.If target exists, then return its index, otherwise return -1.
 
@@ -244,6 +249,7 @@ search([1, 2, 3, 4, 5, 6, 9], 3);
 
 
 //with for loop
+// // Challenge -9
 function search(nums, target) {
   let middle;
   if (nums.length % 2 === 0) {
@@ -275,6 +281,7 @@ search(nums, target);
 
 
 // buble sort
+// // Challenge -10
 
 arr=[1,4,6,8,2,10,3,5];
 
@@ -302,6 +309,7 @@ bubleSort(arr);
 
 
 // selection sort
+// // Challenge -11
 
 items = [1, 4, 6, 8, 2, 10, 3, 5, 7, 20, 15];
 
@@ -338,6 +346,7 @@ function selectionSort(items) {
 selectionSort(items);
 
 //  Insertion Sort
+// // Challenge -12
 
 function insertionSort(items) {
   var len = items.length,
@@ -363,6 +372,7 @@ insertionSort([6, 1, 23, 4, 2, 3]); // [1, 2, 3, 4, 6, 23]
 
 //////////////////////////
 //Merge Sort
+// // Challenge -13
 function merge(leftA, rightA) {
   var results = [], leftIndex = 0, rightIndex = 0;
   while (leftIndex < leftA.length && rightIndex < rightA.length) {
@@ -390,6 +400,7 @@ function mergeSort(array) {
 mergeSort([6, 1, 23, 4, 2, 3]); // [1, 2, 3, 4, 6, 23]
 /////////////////////////////////////////////////////////////////
 //Quickselect
+// // Challenge -14
 
 var array = [1, 3, 3, -2, 3, 14, 7, 8, 1, 2, 2];
 
@@ -414,6 +425,7 @@ quickSelectInPlace(array, 0, array.length - 1, 5);
 
 /////////////////////////////////////////////////
 //  quick Sort
+// // Challenge -15
 
 function quickSort(items) {
   return quickSortHelper(items, 0, items.length - 1);
@@ -459,6 +471,7 @@ function partition(array, left, right) {
 quickSort([6, 1, 23, 4, 2, 3]);
 
 
+// // Challenge -16
 // FIND IF TWO ELEMENTS OF AN ARRAY ADD UP TO A GIVEN NUMBER
 // The simple approach to this problem is to check every other element for each element in the array.
 function findTwoSum(array, sum) {
@@ -489,6 +502,7 @@ function findSumOfTwo(array, sum) {
 findSumOfTwo([1, 5, 7, 6, 9], 20);
 
 // binary search
+// // Challenge -17
 let arr = [1, 1, 2, 2, 3, 3, 5, 4, 4];
 let n = 5;
 function binarySearch(arr, n) {
@@ -511,6 +525,8 @@ binarySearch(arr, n);
 
 
 
+
+// // Challenge -18
 // Your task is to remove all duplicate words from a string, leaving only single(first) words entries.
 
 //   Example:
@@ -536,6 +552,7 @@ function removeDuplicateWords(s) {
 
 
 // binary search
+// // Challenge -19
 
 // let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // // let n= 9;
@@ -595,7 +612,7 @@ binarySearch(0, arr.length - 1, arr);
 
 
 
-
+// // Challenge -20
 // Given an integer number n, return the difference between the product of its digits and the sum of its digits.
 
 
@@ -642,7 +659,7 @@ test("6655");
 
   
 
-
+// // Challenge -21
 // Given a non-negative integer num, return the number of steps to reduce it to zero. If the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
 
 
@@ -674,6 +691,7 @@ function countSteps(num) {
 }
   
 
+// // Challenge -22
 // output '1[.]1[.]1[.]1[1]'
 
 let address = '1.1.1.1';
