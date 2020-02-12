@@ -533,3 +533,89 @@ function removeDuplicateWords(s) {
   return Object.keys(obj).join(' ');
 }
 
+
+
+// binary search
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// let n= 9;
+// let n= 10;
+// let n = 4;
+let n = 8;
+
+function binarySearch(arr, n) {
+  let first = 0;
+  let last = arr.length - 1;
+  let mid = Math.floor((first + last) / 2);
+  //  console.log('here is', arr[mid])
+  console.log('arr', mid);
+  if (n === arr[mid]) {
+    console.log('arr', mid);
+    return arr[mid];
+  } else if (n < arr[mid]) {
+    return binarySearch(arr.slice(0, mid), n);
+  } else {
+    return binarySearch(arr.slice(mid + 1, arr.length - 1), n);
+    console.log(arr)
+  }
+  return -1;
+}
+
+binarySearch(arr, n);
+
+
+// Given an integer number n, return the difference between the product of its digits and the sum of its digits.
+
+
+// Example 1:
+
+// Input: n = 234
+// Output: 15
+// Explanation:
+// Product of digits = 2 * 3 * 4 = 24
+// Sum of digits = 2 + 3 + 4 = 9
+// Result = 24 - 9 = 15
+
+function difference(n) {
+  
+}
+
+
+// Given a non-negative integer num, return the number of steps to reduce it to zero. If the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
+
+
+
+// Example 1:
+
+// Input: num = 14
+// Output: 6
+// Explanation:
+// Step 1) 14 is even; divide by 2 and obtain 7.
+// Step 2) 7 is odd; subtract 1 and obtain 6.
+// Step 3) 6 is even; divide by 2 and obtain 3.
+// Step 4) 3 is odd; subtract 1 and obtain 2.
+// Step 5) 2 is even; divide by 2 and obtain 1.
+// Step 6) 1 is odd; subtract 1 and obtain 0.
+
+
+function countSteps(num) {
+    let steps = 0;
+    while (num > 0) {
+      if (num % 2 == 0) {
+        num = num / 2;
+      } else {
+        num = num - 1;
+      }
+      steps += 1;
+    }
+    return steps;
+}
+  
+
+// output '1[.]1[.]1[.]1[1]'
+
+let address = '1.1.1.1';
+function ipNum(address) {
+  return address.replace(/[._]/g, "[.]");
+  }
+
