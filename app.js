@@ -595,7 +595,7 @@ function binarySearch(first, last, arr) {
     // console.log('arr', mid);  
     return arr[mid];
   } else if (first > last) {
-    return false;s
+    return false;
   }
 
   else if (n < arr[mid]) {
@@ -697,5 +697,119 @@ function countSteps(num) {
 let address = '1.1.1.1';
 function ipNum(address) {
   return address.replace(/[._]/g, "[.]");
-  }
+}
+  
 
+
+// // Challenge -22
+let arr = [[1, 1, 0, 0],
+[0, 0, 0, 1],
+[1, 0, 0, 0],
+[0, 0, 0, 0]];
+
+
+function helper(arr, i, j) {
+  if (i < 0 || j < 0 || i >= arr[0].length || j >= arr.length || arr[i][j] === 0) {
+    return;
+  } else {
+    arr[i][j] = 0;
+    helper(arr, i + 1, j);
+    helper(arr, i - 1, j);
+    helper(arr, i, j + 1);
+    helper(arr, i, j - 1);
+  }
+}
+
+function findIsland(arr) {
+  let islands = 0;
+  for (let i = 0; i < arr[0].length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i][j] === 1) {
+        // console.log(islands);
+        helper(arr, i, j);
+        islands += 1;
+      }
+    }
+  }
+  return islands;
+}
+
+findIsland(arr);
+
+// Chalenge 23
+// Merge sort
+let arr = [5, 6, 1, 10, 4, 3, 0, 7, 9];
+
+function merge(arrOne, arrTwo) {
+  let arr = new Array(arrOne.length + arrTwo.length);
+  let i = 0;
+  let j = 0;
+  let k = 0;
+  while (i < arrOne.length || j < arrTwo.length) {
+    console.log(arrOne, arrTwo)
+    if (i < arrOne.length && j < arrTwo.length) {
+      console.log('moi her')
+      if (arrOne[i] >= arrTwo[j]) {
+        arr[k] = arrTwo[j];
+        j++;
+      } else {
+        arr[k] = arrOne[i];
+        i++;
+      }
+    } else if (j >= arrTwo.length) {
+      arr[k] = arrOne[i];
+      i++;
+    } else {
+      arr[k] = arrTwo[j];
+      j++;
+    }
+    k++;
+  }
+  return arr;
+}
+
+
+
+
+function mergeSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  let mid = Math.floor(arr.length / 2);
+  let left = arr.slice(0, mid);
+  let right = arr.slice(mid, arr.length);
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+
+console.log('here is return', mergeSort(arr));
+
+// Challenge 24 
+// Buble sort
+
+let arr = [5, 8, 1, 3, 6];
+
+function swap(arr, i, j) {
+  let temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+}
+
+function bubleSort(arr) {
+  let i = 0;
+  while (i < arr.length) {
+    let j = i + 1;
+    while (j < arr.length) {
+      if (arr[i] > arr[j]) {
+        swap(arr, i, j);
+
+      }
+      j++;
+    }
+    i++;
+  }
+  return arr;
+}
+
+
+bubleSort(arr);
