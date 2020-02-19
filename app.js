@@ -884,3 +884,70 @@ console.log(mh.get("andrii"));
 console.log(mh.remove("kate", 25));
 console.log(mh.get('kate'));
 console.log(mh.contains("hulk"));
+
+
+// Challenge 25
+let s = "bitcoin take over the world maybe who knows perhaps";
+
+function findShort(s) {
+  let newStr = s.split(' ');
+  // console.log(newStr);
+
+  newStr.sort((a, b) => {
+    return a.length - b.length;
+  });
+  // console.log(newStr);
+
+  return newStr[0].length;
+
+}
+
+findShort(s);
+
+// function findNewSort(s) {
+//   let newStr = s.split(' ');
+//   let minl = newStr[0].length
+//   let minWord = 0
+//   for (let i = 0; i < newStr.length; i++) {
+//     if (newStr[i].length < minl) {
+//       minl = newStr[i].length;
+//       minWord = newStr[i].length
+//     }
+//   }
+//   return minWord
+// }
+
+// findNewSort(s)
+
+ // Challenge 26
+
+// A square of squares
+// You like building blocks. You especially like building blocks that are squares. And what you even like more, is to arrange them into a square of square building blocks!
+
+// However, sometimes, you can't arrange them into a square. Instead, you end up with an ordinary rectangle! Those blasted things! If you just had a way to know, whether you're currently working in vain… Wait! That's it! You just have to check if your number of building blocks is a perfect square.
+
+// Task
+// Given an integral number, determine if it's a square number:
+
+// In mathematics, a square number or perfect square is an integer that is the square of an integer; in other words, it is the product of some integer with itself.
+
+// The tests will always use some integral number, so don't worry about that in dynamic typed languages.
+
+
+
+
+var isSquare = function (n) {
+  if (n >= 0 && Math.sqrt(n) % 1 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// Examples
+isSquare(-1) //returns //false
+isSquare(0) //returns   //true
+isSquare(3) //returns   //false
+isSquare(4) //returns   //true
+isSquare(25) //returns  //true  
+isSquare(26) //returns  //false
