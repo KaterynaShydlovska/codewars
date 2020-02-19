@@ -813,3 +813,74 @@ function bubleSort(arr) {
 
 
 bubleSort(arr);
+
+
+// hashTable
+// Chalenge 24
+
+class Hashtable {
+  constructor(numOfboxes) {
+    this.size = numOfboxes;
+    this.element = new Array(this.size);
+  }
+
+  hash(key) {
+    return key.length % this.size;
+  }
+
+  put(key, value) {
+    let boxNum = this.hash(key);
+    if (this.element[boxNum]) {
+      obj = this.element[boxNum];
+      if (obj[key]) {
+        obj[key] = value;
+      } else {
+        obj[key] = value;
+      }
+    } else {
+      let newObj = {};
+      newObj[key] = value;
+      this.element[boxNum] = newObj;
+    }
+  }
+
+  get(key) {
+    const h = this.hash(key);
+    if (this.element[h]) {
+      if (this.element[h][key]) {
+        return this.element[h][key];
+      }
+    }
+    return null;
+  }
+
+  contains(key) {
+    let possibleKey = this.get(key);
+    if (possibleKey) {
+      // console.log('here is contans', possibleKey)
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  remove(key) {
+    // console.log('here is remove', key)
+    let foundEl = this.hash(key);
+    if (this.element[foundEl]) {
+      delete (this.element[foundEl][key]);
+    }
+    return 'deleted';
+  }
+}
+
+
+let mh = new Hashtable(15);
+
+mh.put("andrii", 45);
+mh.put("kate", 25);
+// mh.put("hulk", 5);
+console.log(mh.get("andrii"));
+console.log(mh.remove("kate", 25));
+console.log(mh.get('kate'));
+console.log(mh.contains("hulk"));
