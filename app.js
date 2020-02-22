@@ -961,9 +961,83 @@ n = 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144;
 function nthFibo(n) {
   if (n < 0) {
     return false;
-  } else if (n < 2 && n >= 0) {
-    return n
+  } else if (n === 2) {
+    return 1;
+  } else if (n === 1) {
+    return 0;
   }
   return nthFibo(n - 1) + nthFibo(n - 2)
 }
-nthFibo(10)
+console.log(nthFibo(3));
+
+// hash
+// Challeng - 28
+
+function nthFibo(n) {
+  if (n < 0) {
+    return false;
+  } else if (n === 2) {
+    return 1;
+  } else if (n === 1) {
+    return 0;
+  }
+  return nthFibo(n - 1) + nthFibo(n - 2)
+}
+console.log(nthFibo(3));
+
+class HashTable {
+  constructor(size) {
+    this.size = size;
+    this.buckets = new Array(size);
+  }
+  hash(key) {
+    if (typeof (key) === 'string') {
+      return key.length % this.size;
+    } else {
+      return key % this.size;
+    }
+  }
+
+  put(key, value) {
+    let bucketNum = this.hash(key);
+    let obj = this.buckets[bucketNum];
+    if (obj) {
+      obj[key] = value;
+    } else {
+      let newObj = {};
+      newObj[key] = value;
+      this.buckets[bucketNum] = newObj;
+    }
+  }
+
+  get(key) {
+    let num = this.hash(key);
+    if (this.buckets[num]) {
+      if (this.buckets[num][key]) {
+        return this.buckets[num][key];
+      }
+    }
+    return "not found"
+  }
+
+  delete(key) {
+    let num = this.hash(key);
+    if (this.buckets[num]) {
+      if (this.buckets[num][key]) {
+        delete this.buckets[num][key];
+      }
+    }
+  }
+
+}
+
+let table = new HashTable(15);
+
+table.put(25, 'kate');
+table.put(29, 'andrii')
+table.put(5, 'hulk')
+
+console.log(table.get(25));
+console.log(table.get('kjhj'));
+
+
