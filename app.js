@@ -951,3 +951,17 @@ isSquare(3) //returns   //false
 isSquare(4) //returns   //true
 isSquare(25) //returns  //true  
 isSquare(26) //returns  //false
+
+
+// fibonacci
+// Challeng - 27
+
+n = 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144;
+
+function nthFibo(n) {
+  if (n < 2) {
+    return n
+  }
+  return nthFibo(n - 1) + nthFibo(n - 2)
+}
+nthFibo(10)
