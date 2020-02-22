@@ -959,7 +959,9 @@ isSquare(26) //returns  //false
 n = 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144;
 
 function nthFibo(n) {
-  if (n < 2) {
+  if (n < 0) {
+    return false;
+  } else if (n < 2 && n >= 0) {
     return n
   }
   return nthFibo(n - 1) + nthFibo(n - 2)
