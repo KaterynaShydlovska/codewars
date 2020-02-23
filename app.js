@@ -884,3 +884,252 @@ console.log(mh.get("andrii"));
 console.log(mh.remove("kate", 25));
 console.log(mh.get('kate'));
 console.log(mh.contains("hulk"));
+
+
+// Challenge 25
+let s = "bitcoin take over the world maybe who knows perhaps";
+
+function findShort(s) {
+  let newStr = s.split(' ');
+  // console.log(newStr);
+
+  newStr.sort((a, b) => {
+    return a.length - b.length;
+  });
+  // console.log(newStr);
+
+  return newStr[0].length;
+
+}
+
+findShort(s);
+
+// function findNewSort(s) {
+//   let newStr = s.split(' ');
+//   let minl = newStr[0].length
+//   let minWord = 0
+//   for (let i = 0; i < newStr.length; i++) {
+//     if (newStr[i].length < minl) {
+//       minl = newStr[i].length;
+//       minWord = newStr[i].length
+//     }
+//   }
+//   return minWord
+// }
+
+// findNewSort(s)
+
+ // Challenge 26
+
+// A square of squares
+// You like building blocks. You especially like building blocks that are squares. And what you even like more, is to arrange them into a square of square building blocks!
+
+// However, sometimes, you can't arrange them into a square. Instead, you end up with an ordinary rectangle! Those blasted things! If you just had a way to know, whether you're currently working in vain… Wait! That's it! You just have to check if your number of building blocks is a perfect square.
+
+// Task
+// Given an integral number, determine if it's a square number:
+
+// In mathematics, a square number or perfect square is an integer that is the square of an integer; in other words, it is the product of some integer with itself.
+
+// The tests will always use some integral number, so don't worry about that in dynamic typed languages.
+
+
+
+
+var isSquare = function (n) {
+  if (n >= 0 && Math.sqrt(n) % 1 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// Examples
+isSquare(-1) //returns //false
+isSquare(0) //returns   //true
+isSquare(3) //returns   //false
+isSquare(4) //returns   //true
+isSquare(25) //returns  //true  
+isSquare(26) //returns  //false
+
+
+// fibonacci
+// Challeng - 27
+
+n = 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144;
+
+function nthFibo(n) {
+  if (n < 0) {
+    return false;
+  } else if (n === 2) {
+    return 1;
+  } else if (n === 1) {
+    return 0;
+  }
+  return nthFibo(n - 1) + nthFibo(n - 2)
+}
+console.log(nthFibo(3));
+
+// hash
+// Challeng - 28
+
+function nthFibo(n) {
+  if (n < 0) {
+    return false;
+  } else if (n === 2) {
+    return 1;
+  } else if (n === 1) {
+    return 0;
+  }
+  return nthFibo(n - 1) + nthFibo(n - 2)
+}
+console.log(nthFibo(3));
+
+class HashTable {
+  constructor(size) {
+    this.size = size;
+    this.buckets = new Array(size);
+  }
+  hash(key) {
+    if (typeof (key) === 'string') {
+      return key.length % this.size;
+    } else {
+      return key % this.size;
+    }
+  }
+
+  put(key, value) {
+    let bucketNum = this.hash(key);
+    let obj = this.buckets[bucketNum];
+    if (obj) {
+      obj[key] = value;
+    } else {
+      let newObj = {};
+      newObj[key] = value;
+      this.buckets[bucketNum] = newObj;
+    }
+  }
+
+  get(key) {
+    let num = this.hash(key);
+    if (this.buckets[num]) {
+      if (this.buckets[num][key]) {
+        return this.buckets[num][key];
+      }
+    }
+    return "not found"
+  }
+
+  delete(key) {
+    let num = this.hash(key);
+    if (this.buckets[num]) {
+      if (this.buckets[num][key]) {
+        delete this.buckets[num][key];
+      }
+    }
+  }
+
+}
+
+let table = new HashTable(15);
+
+table.put(25, 'kate');
+table.put(29, 'andrii')
+table.put(5, 'hulk')
+
+console.log(table.get(25));
+console.log(table.get('kjhj'));
+
+
+// LinkedList
+
+class Node {
+  constructor(potato) {
+    this.potato = potato;
+    this.next = null;
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.size = 0;
+  }
+  insert(value) {
+    if (this.head === null) {
+      this.head = new Node(value);
+    } else {
+      let temp = this.head;
+      this.head = new Node(value);
+      this.head.next = temp;
+    }
+    this.size++;
+    return value;
+  }
+  remove(value) {
+    let currentHead = this.head;
+    if (currentHead.potato === value) {
+      this.head = currentHead.next;
+      this.size--;
+    } else {
+      let prev = currentHead;
+      while (currentHead.next) {
+        if (currentHead.potato === value) {
+          prev.next = currentHead.next;
+          prev = currentHead;
+          currentHead = currentHead.next;
+          break; // break out of the loop
+        }
+        prev = currentHead;
+        currentHead = currentHead.next;
+      }
+      if (currentHead.potato == value) {
+        prev.next = null;
+      }
+      this.size--;
+      return value;
+    }
+  }
+}
+
+
+let newList = new LinkedList();
+
+console.log(newList.insert(5));
+console.log(newList.insert(2));
+console.log(newList.insert(3));
+console.log(newList.insert("katya"));
+// console.log(newList)
+console.log('remove', newList.remove(5));
+console.log(newList)
+
+
+// Challenge 30
+// Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+
+// For example:
+
+// persistence(39) === 3 // because 3*9 = 27, 2*7 = 14, 1*4=4
+// // and 4 has only one digit
+
+// persistence(999) === 4 // because 9*9*9 = 729, 7*2*9 = 126,
+// // 1*2*6 = 12, and finally 1*2 = 2
+
+// persistence(4) === 0 // because 4 is already a one-digit number
+
+
+function persistence(num) {
+  function multiply(n) {
+    return n.reduce(function (a, b) { return a * b; });
+  }
+  var count = 0;
+
+  while (num.toString().length > 1) {
+    num = num.toString().split("");
+    num = multiply(num);
+    count++;
+  }
+  return count;
+}
+
+
