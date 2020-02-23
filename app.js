@@ -1041,3 +1041,66 @@ console.log(table.get(25));
 console.log(table.get('kjhj'));
 
 
+// LinkedList
+
+class Node {
+  constructor(potato) {
+    this.potato = potato;
+    this.next = null;
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.size = 0;
+  }
+  insert(value) {
+    if (this.head === null) {
+      this.head = new Node(value);
+    } else {
+      let temp = this.head;
+      this.head = new Node(value);
+      this.head.next = temp;
+    }
+    this.size++;
+    return value;
+  }
+  remove(value) {
+    let currentHead = this.head;
+    if (currentHead.potato === value) {
+      this.head = currentHead.next;
+      this.size--;
+    } else {
+      let prev = currentHead;
+      while (currentHead.next) {
+        if (currentHead.potato === value) {
+          prev.next = currentHead.next;
+          prev = currentHead;
+          currentHead = currentHead.next;
+          break; // break out of the loop
+        }
+        prev = currentHead;
+        currentHead = currentHead.next;
+      }
+      if (currentHead.potato == value) {
+        prev.next = null;
+      }
+      this.size--;
+      return value;
+    }
+  }
+}
+
+
+let newList = new LinkedList();
+
+console.log(newList.insert(5));
+console.log(newList.insert(2));
+console.log(newList.insert(3));
+console.log(newList.insert("katya"));
+// console.log(newList)
+console.log('remove', newList.remove(5));
+console.log(newList)
+
+
