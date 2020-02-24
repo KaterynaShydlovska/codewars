@@ -1122,7 +1122,7 @@ function persistence(num) {
   function multiply(n) {
     return n.reduce(function (a, b) { return a * b; });
   }
-  var count = 0;
+  let count = 0;
 
   while (num.toString().length > 1) {
     num = num.toString().split("");
@@ -1131,5 +1131,25 @@ function persistence(num) {
   }
   return count;
 }
+
+
+
+// remove  dublicates from the linked list
+
+function remove(value, node){
+  let first = null;
+  let second = node;
+  while (second !== null) {
+    if (second.value === value) {
+      first.next = second.next;
+      second = second.next;
+    } else {
+      first =second;
+      second = second.next;
+    }
+  }
+  return;
+}
+
 
 
