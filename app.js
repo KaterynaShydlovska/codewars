@@ -1183,5 +1183,51 @@ function findUniq(arr) {
   }
 }
 
+// Double linkedList
+
+
+class Node(){
+  constructor(data, next = null, prev = null){
+    this.data = data;
+    this.prev = prev;
+    this.next = next;
+  }
+
+
+  class DoubleList(){
+    constructor(value){
+      this.head = null;
+      ths.tail = null;
+      this.size = 0;
+    }
+  }
+
+  addHead(value){
+    if (this.head === null) {
+      this.head = new Node(value);
+      this.tail = this.head;
+    } else {
+      let temp = new Node(value);
+      temp.next = this.head;
+      this.head.prev = temp;
+      this.head = temp;
+    }
+    this.size++;
+  }
+
+
+  addTail(value){
+    if (this.tail === null) {
+      this.tail = new Node(value);
+      this.head = this.tail;
+    } else {
+      let temp = new Node(value);
+      this.tail.next = temp;
+      temp.prev = this.tail;
+      this.tail = temp;
+    }
+    this.size++;
+  }
+}
 
 
