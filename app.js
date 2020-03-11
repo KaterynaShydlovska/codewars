@@ -1429,4 +1429,77 @@ bst.contains(9)
 
 
 
+//  BST
 
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+class BST {
+  constructor() {
+    this.size = 0;
+    this.root = null;
+    this.max = null;
+    this.min = null;
+  }
+
+
+  insert(value) {
+    if (!this.root) {
+      this.root = new Node(value);
+    } else {
+      this.searchAnInsert(this.root, value);
+
+      if (value > this.max) {
+        this.max = value;
+      } else if (this.min === null || value < this.min) {
+        this.min = value;
+      }
+    }
+    this.size++;
+  }
+
+  searchAnInsert(node, value) {
+    if (value < node.value) {
+      if (!node.left) {
+        node.left = new Node(value);
+      } else {
+        this.searchAnInsert(node.left, value);
+      }
+    } else {
+      if (!node.right) {
+        node.right = new Node(value);
+      } else {
+        this.searchAnInsert(node.right, value);
+      }
+    }
+  }
+
+  min() {
+    console.log('here is', this.min)
+    return this.min;
+  }
+
+
+  max() {
+    return this.max;
+  }
+}
+
+
+let bst = new BST();
+
+bst.insert(5);
+bst.insert(6);
+bst.insert(10);
+bst.insert(8);
+bst.insert(1);
+bst.insert(34);
+bst.insert(0);
+bst.insert(-1);
+
+console.log(bst)
