@@ -1503,3 +1503,23 @@ bst.insert(0);
 bst.insert(-1);
 
 console.log(bst)
+
+
+// Complete the solution so that it splits the string into pairs of two characters.If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore('_').
+
+//   Examples:
+
+// solution('abc') // should return ['ab', 'c_']
+// solution('abcdef') // should return ['ab', 'cd', 'ef']
+
+
+function solution(str) {
+  let newStr = [];
+  if (str.length % 2 === 1) {
+    str = str + "_";
+  }
+  for (let i = 0; i < str.length; i += 2) {
+    newStr.push(str.substring(i, i + 2));
+  }
+  return newStr;
+}
