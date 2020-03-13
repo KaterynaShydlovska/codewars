@@ -1579,3 +1579,27 @@ function sortArray(array) {
 }
 
 sortArray(array);
+
+
+// The main idea is to count all the occurring characters(UTF-8) in string. If you have string like this aba then the result should be { 'a': 2, 'b': 1 }
+
+// What if the string is empty ? Then the result should be empty object literal { }
+
+
+function count(string) {
+  let obj = {};
+  let empty = {};
+  for (let i = 0; i < string.length; i++) {
+
+    if (string === '') {
+      return empty;
+    }
+    if (obj[string[i]]) {
+      obj[string[i]] += 1;
+    } else {
+      obj[string[i]] = 1;
+    }
+  }
+
+  return obj;
+}
