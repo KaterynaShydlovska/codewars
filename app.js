@@ -1676,3 +1676,90 @@ function duplicateCount(text) {
 //  ? = if, correct : wrong
 let a = 7 > 3 ? true : false
 console.log(a)
+
+// There is a queue for the self-checkout tills at the supermarket. Your task is write a function to calculate the total time required for all the customers to check out!
+
+// input
+// customers: an array of positive integers representing the queue.Each integer represents a customer, and its value is the amount of time they require to check out.
+//   n: a positive integer, the number of checkout tills.
+//     output
+// The function should return an integer, the total time required.
+
+//   Important
+// Please look at the examples and clarifications below, to ensure you understand the task correctly:)
+
+// Examples
+// queueTime([5, 3, 4], 1)
+// // should return 12
+// // because when there is 1 till, the total time is just the sum of the times
+
+// queueTime([10, 2, 3, 3], 2)
+// // should return 10
+// // because here n=2 and the 2nd, 3rd, and 4th people in the 
+// // queue finish before the 1st person has finished.
+
+// queueTime([2, 3, 10], 2)
+// should return 12
+
+function queueTime(customers, registers) {
+  let arr = [];
+
+  for (let i = 0; i < registers; i++)
+    arr[i] = 0;
+
+  for (let i = 0; i < customers.length; i++) {
+    arr[0] += customers[i];
+    arr.sort((a, b) => a - b);
+  }
+
+  return arr[arr.length - 1];
+}
+
+///////////////////////////////
+
+let arr = [];
+
+const shortestQueueIndex = () => arr.indexOf(Math.min(...arr));
+
+const addCustomer = (customer) => {
+  arr[shortestQueueIndex()] += customer;
+};
+
+function queueTime(customers, n) {
+  arr = new Array(n);
+  arr.fill(0);
+  customers.forEach(addCustomer);
+  return Math.max(...arr);
+}
+
+
+// Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
+
+// moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]) // returns[false,1,1,2,1,3,"a",0,0]
+
+function swap(arr, ind1, ind2) {
+  let temp = arr[ind1];
+  arr[ind1] = arr[ind2];
+  arr[ind2] = temp;
+}
+
+var moveZeros = function (arr) {
+  let i = 0;
+  let j = i + 1;
+  while (j <= arr.length - 1) {
+    if (arr[i] !== 0 && arr[j] !== 0) {
+      i++;
+      j++;
+    } else if (arr[i] !== 0 && arr[j] === 0) {
+      i++;
+      j++;
+    } else if (arr[i] === 0 && arr[j] !== 0) {
+      swap(arr, i, j)
+      i++;
+      j++;
+    } else if (arr[i] === 0 && arr[j] === 0) {
+      j++;
+    }
+  }
+  return arr;
+}
