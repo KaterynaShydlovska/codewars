@@ -1763,3 +1763,22 @@ var moveZeros = function (arr) {
   }
   return arr;
 }
+
+
+// sum of pair
+
+
+function sum_pairs(ints, s) {
+  for (let i = 0; i < ints.length; i++) {
+    let j = i + 1;
+    while (j < ints.length) {
+      if (ints[i] + ints[j] === s) {
+        return [ints[i], ints[j]];
+      } else {
+        j++;
+      }
+    }
+  }
+}
+
+console.log(sum_pairs([10, 5, 2, 3, 7, 5], 10));
