@@ -1782,3 +1782,77 @@ function sum_pairs(ints, s) {
 }
 
 console.log(sum_pairs([10, 5, 2, 3, 7, 5], 10));
+
+
+
+// Scenario
+// Now that the competition gets tough it will Sort out the men from the boys.
+
+// Men are the Even numbers and Boys are the odd!alt!alt
+
+// Task
+// Given an array / list[] of n integers, Separate The even numbers from the odds, or Separate the men from the boys!alt!alt
+
+// Notes
+// Return an array / list where Even numbers come first then odds
+
+// Since, Men are stronger than Boys, Then Even numbers in ascending order While odds in descending.
+
+//   Array / list size is at least * 4 *** .
+
+//     Array / list numbers could be a mixture of positives, negatives.
+
+// Have no fear, It is guaranteed that no Zeroes will exists. !alt
+
+// Repetition of numbers in the array / list could occur, So(duplications are not included when separating).
+
+//   Input >> Output Examples:
+// menFromBoys({ 7, 3 , 14 , 17}) ==> return ({ 14, 17, 7, 3}) 
+
+function menFromBoys(arr) {
+  let men = [];
+  let boys = [];
+  let mySet = new Set(arr);
+  let myArr = Array.from(mySet);
+  console.log(myArr)
+  for (let i = 0; i < myArr.length; i++) {
+    if (myArr[i] % 2 === 0) {
+      men.push(myArr[i])
+    } else {
+      boys.push(myArr[i])
+    }
+  }
+  men.sort(function (a, b) { return a - b });
+  boys.sort(function (a, b) { return b - a });
+  let newArr = men.concat(boys);
+  return newArr;
+}
+
+
+// Given the string representations of two integers, return the string representation of the sum of those integers.
+
+// For example:
+
+// sumStrings('1', '2') // => '3'
+// A string representation of an integer will contain no characters besides the ten numerals "0" to "9".
+
+// Test Passed: Value == '579'
+// Test Passed: Value == '8842'
+// Test Passed: Value == '10367'
+// Test Passed: Value == '100'
+// Test Passed: Value == '8670'
+// Test Passed: Value == '5'
+// sumStrings('712569312664357328695151392', '8100824045303269669937') - Expected: '712577413488402631964821329', instead got: '7.125774134884027e+26'
+// sumStrings('50095301248058391139327916261', '81055900096023504197206408605') - Expected: '131151201344081895336534324866', instead got: '1.3115120134408189e+29'
+
+function sumStrings(a, b) {
+  if (a === '') {
+    return b
+  } else if (b === '') {
+    return a
+  } else {
+    let sum = parseFloat(a) + parseFloat(b);
+    return sum.toString();
+  }
+}
+// didn't resolve.....;
