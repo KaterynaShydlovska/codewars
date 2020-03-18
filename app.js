@@ -1146,7 +1146,7 @@ function persistence(num) {
 // }
 
 
-
+ // Challenge 31
 // remove  dublicates from the linked list
 
 function remove(value, node){
@@ -1164,6 +1164,9 @@ function remove(value, node){
   return;
 }
 
+
+
+// Challenge 32
 // There is an array with some numbers. All numbers are equal except for one. Try to find it!
 
 // findUniq([1, 1, 1, 2, 1, 1]) === 2
@@ -1183,6 +1186,10 @@ function findUniq(arr) {
   }
 }
 
+
+
+
+// Challenge 33
 // Double linkedList
 
 
@@ -1230,6 +1237,9 @@ addTail(value){
 }
 
 
+
+
+// Challenge 34
 // Binary Search Tree
 
 class Node {
@@ -1429,6 +1439,9 @@ bst.contains(9)
 
 
 
+
+
+// Challenge 35
 //  BST
 
 class Node {
@@ -1505,6 +1518,8 @@ bst.insert(-1);
 console.log(bst)
 
 
+
+// Challenge 36
 // Complete the solution so that it splits the string into pairs of two characters.If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore('_').
 
 //   Examples:
@@ -1525,6 +1540,8 @@ function solution(str) {
 }
 
 
+
+// Challenge 37
 // The two oldest ages function/method needs to be completed. It should take an array of numbers as its argument and return the two highest numbers within the array. The returned value should be an array in the format [second oldest age, oldest age].
 
 // The order of the numbers passed in could be any order.The array will always include at least 2 items.
@@ -1542,6 +1559,9 @@ function twoOldestAges(ages) {
 twoOldestAges(ages);
 
 
+
+
+// Challenge 38
 // Given an array, find the integer that appears an odd number of times.
 
 // There will always be only one integer that appears an odd number of times.
@@ -1550,6 +1570,8 @@ twoOldestAges(ages);
 const findOdd = (el) => el.reduce((a, b) => a ^ b);
 
 
+
+// Challenge 39
 // You have an array of numbers.
 // Your task is to sort ascending odd numbers but even numbers must be on their places.
 
@@ -1581,6 +1603,10 @@ function sortArray(array) {
 sortArray(array);
 
 
+
+
+
+// Challenge 40
 // The main idea is to count all the occurring characters(UTF-8) in string. If you have string like this aba then the result should be { 'a': 2, 'b': 1 }
 
 // What if the string is empty ? Then the result should be empty object literal { }
@@ -1605,6 +1631,8 @@ function count(string) {
 }
 
 
+
+// Challenge 41
 // Count the number of Duplicates
 // Write a function that will return the count of distinct case -insensitive alphabetic characters and numeric digits that occur more than once in the input string.The input string can be assumed to contain only alphabets(both uppercase and lowercase) and numeric digits.
 
@@ -1677,6 +1705,10 @@ function duplicateCount(text) {
 let a = 7 > 3 ? true : false
 console.log(a)
 
+
+
+
+// Challenge 42
 // There is a queue for the self-checkout tills at the supermarket. Your task is write a function to calculate the total time required for all the customers to check out!
 
 // input
@@ -1733,6 +1765,8 @@ function queueTime(customers, n) {
 }
 
 
+
+// Challenge 42
 // Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
 
 // moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]) // returns[false,1,1,2,1,3,"a",0,0]
@@ -1765,6 +1799,8 @@ var moveZeros = function (arr) {
 }
 
 
+
+// Challenge 43
 // sum of pair
 
 
@@ -1784,7 +1820,7 @@ function sum_pairs(ints, s) {
 console.log(sum_pairs([10, 5, 2, 3, 7, 5], 10));
 
 
-
+// Challenge 44
 // Scenario
 // Now that the competition gets tough it will Sort out the men from the boys.
 
@@ -1829,6 +1865,9 @@ function menFromBoys(arr) {
 }
 
 
+
+
+// Challenge 45
 // Given the string representations of two integers, return the string representation of the sum of those integers.
 
 // For example:
@@ -1858,6 +1897,9 @@ function sumStrings(a, b) {
 // didn't resolve.....;
 
 
+
+
+// Challenge 46
 // Given a sorted array of distinct integers, write a function indexEqualsValue that returns the lowest index for which array[index] == index. Return -1 if there is no such index.
 
 // Your algorithm should be very performant.
@@ -1883,3 +1925,23 @@ function indexEqualsValue(a) {
 }
 
 // up to 150ms
+
+
+
+// Challenge 47
+
+// In this example you have to validate if a user input string is alphanumeric. The given string is not nil/null/NULL/None, so you don't have to check that.
+
+// The string has the following conditions to be alphanumeric:
+
+// At least one character("" is not valid)
+// Allowed characters are uppercase / lowercase latin letters and digits from 0 to 9
+// No whitespaces / underscore
+
+function alphanumeric(string) {
+  let reg = /^([a-zA-Z0-9]+)$/
+  if (string.match(reg)) {
+    return true;
+  }
+  return false;
+}
