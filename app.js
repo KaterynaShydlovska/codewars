@@ -2096,3 +2096,60 @@ function validParentheses(parens) {
 
   return stack.length === 0;
 }
+
+
+
+
+// Challenge 51
+// We need to sum big numbers and we require your help.
+
+// Write a function that returns the sum of two numbers.The input numbers are strings and the function must return a string.
+
+//   Example
+// add("123", "321"); -> "444"
+// add("11", "99"); -> "110"
+// Notes
+// The input numbers are big.
+// The input is a string of only digits
+// The numbers are positives
+
+function add(a, b) {
+  if (a.length > b.length) {
+    return help(b, a)
+  } else {
+    return help(a, b)
+  }
+}
+
+function help(min, max, rem = 0) {
+  let end = '';
+  let i = min.length - 1;
+  let j = max.length - 1;
+  while (i >= 0) {
+    let a = parseInt(min[i])
+    let b = parseInt(max[j])
+    if (a + b + rem >= 10) {
+      let c = ((a + b + rem) - 10)
+      if (rem === 0) {
+        rem = 1;
+      }
+      end = c + end;
+    } else {
+      end = (a + b + rem) + end;
+      rem = 0;
+    }
+    i--;
+    j--;
+  }
+  if (rem !== 0) {
+    if (i === j) {
+      return 1 + end;
+    }
+    let temp = help("0", max.substring(0, j + 1), 1);
+    return temp + end;
+  }
+  if (j < 0) {
+    return end;
+  }
+  return max.substring(0, j + 1) + end;
+}
