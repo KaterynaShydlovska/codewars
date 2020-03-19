@@ -2153,3 +2153,52 @@ function help(min, max, rem = 0) {
   }
   return max.substring(0, j + 1) + end;
 }
+
+// or 
+function add(a, b) {
+  var res = '', c = 0
+  a = a.split('')
+  b = b.split('')
+  while (a.length || b.length || c) {
+    c += ~~a.pop() + ~~b.pop()
+    res = c % 10 + res
+    c = c > 9
+  }
+  return res
+}
+
+
+// Challenge 51
+// Your task is to find all the elements of an array that are non consecutive.
+
+// A number is non consecutive if it is not exactly one larger than the previous element in the array.The first element gets a pass and is never considered non consecutive.
+
+// Create a function named allNonConsecutive
+
+// E.g., if we have an array[1, 2, 3, 4, 6, 7, 8, 10] then 6 and 10 are non - consecutive.
+
+// You should return the results as an array of objects with two values i: <the index of the non-consecutive number> and n: <the non-consecutive number>.
+
+// E.g., for the above array the result should be:
+
+// [
+//   {i: 4, n:6},
+//   {i: 7, n:10}
+// ]
+
+function allNonConsecutive(arr) {
+  let endArr = [];
+
+  let i = 0;
+  let j = i + 1;
+  while (j <= arr.length - 1) {
+    if (arr[j] - arr[i] !== 1) {
+      console.log(arr[j], arr[i])
+      endArr.push({ i: j, n: arr[j] })
+    }
+    i++;
+    j++;
+  }
+
+  return endArr;
+}
