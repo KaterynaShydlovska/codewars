@@ -271,3 +271,17 @@ function sum_pairs(ints, s) {
 }
 
 console.log(sum_pairs([10, 5, 2, 3, 7, 5], 10));
+
+// You need to design a recursive function called replicate which will receive arguments times and number.
+
+// The function should return an array containing repetitions of the number argument.For instance, replicate(3, 5) should return [5, 5, 5].If the times argument is negative, return an empty array.
+
+// As tempting as it may seem, do not use loops to solve this problem.
+
+function replicate(times, number) {
+  let newArr = [];
+  while (times !== 0) {
+    newArr.push(number);
+    times -= 1;
+  }
+  r
