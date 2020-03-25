@@ -230,3 +230,42 @@ function strCount(str, letter) {
   }
   return count;
 }
+
+// Given a string, capitalize the letters that occupy even indexes and odd indexes separately, and return as shown below.Index 0 will be considered even.
+
+// For example, capitalize("abcdef") = ['AbCdEf', 'aBcDeF'].See test cases for more examples.
+
+// The input will be a lowercase string with no spaces.
+
+// Good luck!
+
+// If you like this Kata, please try:
+
+// Indexed capitalization
+
+// Even - odd disparity
+
+function capitalize(s) {
+  let output1 = "";
+  let output2 = "";
+  let arr = [];
+  for (var i = 0; i < s.length; i++) {
+    if (i % 2 === 0) {
+      output1 += s[i].toUpperCase();
+    }
+    else {
+      output1 += s[i].toLowerCase();
+    }
+  }
+  arr.push(output1)
+  for (var j = 0; j < s.length; j++) {
+    if (j % 2 != 0) {
+      output2 += s[j].toUpperCase();
+    }
+    else {
+      output2 += s[j].toLowerCase();
+    }
+  }
+  arr.push(output2)
+  return arr;
+}
