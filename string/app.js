@@ -205,6 +205,8 @@ function tripleTrouble(one, two, three) {
 }
 
 
+// Challenge 6
+
 // This Kata is intended as a small challenge for my students
 
 // All Star Code Challenge #18
@@ -230,6 +232,13 @@ function strCount(str, letter) {
   }
   return count;
 }
+// or
+function strCount(str, letter) {
+  return str.split(letter).length - 1
+}
+
+
+// Challenge 7
 
 // Given a string, capitalize the letters that occupy even indexes and odd indexes separately, and return as shown below.Index 0 will be considered even.
 

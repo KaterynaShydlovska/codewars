@@ -28,8 +28,29 @@
 // Create a new branch called doubly - linked - list, and, using the resources available to you online, implement a doubly linked list(completely separate from your singly linked list).
 
 
-class Node(){
-  constructor()
+class Node{
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class LinkedList{
+  constructor() {
+    this.head = null;
+  }
+
+  insert(value) {
+    if (this.head === null) {
+      this.head = new Node(value);
+    } else {
+      let temp = this.head;
+      this.head = new Node(value);
+      this.head.next = temp;
+    }
+    return value;
+
+  }
 }
 
 
