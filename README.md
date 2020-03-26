@@ -10,7 +10,7 @@
 
    * [array](https://github.com/KaterynaShydlovska/codewars/blob/master/array/app.js)
 
-   * [binarysearc](https://github.com/KaterynaShydlovska/codewars/blob/master/binarysearc/app.js)
+   * [binarysearch](https://github.com/KaterynaShydlovska/codewars/blob/master/binarysearch/app.js)
 
    * [fibonacci](https://github.com/KaterynaShydlovska/codewars/blob/master/fibonacci/app.js)
 
