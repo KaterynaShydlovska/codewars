@@ -13,31 +13,26 @@
 // Structure and Testing
 // Utilize the Single - responsibility principle: any methods you write should be clean, reusable, abstract component parts to the whole challenge.You will be given feedback and marked down if you attempt to define a large, complex algorithm in one function definition.
 
-// Write tests to prove the following functionality:
-
-// Can successfully instantiate an empty linked list
-// Can properly insert into the linked list
-// The head property will properly point to the first node in the linked list
-// Can properly insert multiple nodes into the linked list
-// Will return true when finding a value within the linked list that exists
-// Will return false when searching for a value in the linked list that does not exist
-// Can properly return a collection of all the values that exist in the linked list
-// Ensure your tests are passing before you submit your solution.
 
 // Stretch Goal
 // Create a new branch called doubly - linked - list, and, using the resources available to you online, implement a doubly linked list(completely separate from your singly linked list).
 
-
+ 
 class Node{
-  constructor(value) {
+  constructor(value, node=null) {
     this.value = value;
-    this.next = null;
+    this.next = node;
   }
 }
 
-class LinkedList{
-  constructor() {
-    this.head = null;
+class LinkedList {
+  constructor(node = null) {
+    if (node) {
+      this.head = new Node(node);
+    } else {
+      this.head = node;
+    }
+
   }
 
   insert(value) {
@@ -51,8 +46,40 @@ class LinkedList{
     return value;
 
   }
+
+  includes(value) {
+    let member = this.head;
+    while (member !==null) {
+      if (member.value === value) {
+        return true;
+      }
+      member = member.next;
+    }
+    return false;
+  }
+
+  toString() {
+    if (this.head === null) {
+      throw new Error('Linked list is empty ;(');
+    }
+    let st = [];
+    let node = this.head;
+    while (node) {
+      st.push("{ " + node.value + " }");
+      node = node.next;
+    }
+    st.push('NULL');
+    return st.join(' -> ');
+  }
 }
 
+
+// let a = new Node('b');
+let list = new LinkedList(10);
+// console.log(list.toString())
+list.insert(20);
+console.log(list.toString())
+list.includes(10)
 
 
 // Chalenge 2
