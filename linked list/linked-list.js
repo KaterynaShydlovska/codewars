@@ -122,3 +122,72 @@ list.includes(10)
 // head -> [1] -> [3] -> [2] -> X	2, 5	head -> [1] -> [3] -> [2] -> [5] -> X
 // head -> [1] -> [2] -> [2] -> X	2, 5	head -> [1] -> [2] -> [5] -> [2] -> X
 // head -> [1] -> [3] -> [2] -> X	4, 5	Exception
+
+
+class Node {
+  constructor(value, node = null) {
+    this.value = value;
+    this.next = node;
+  }
+}
+
+class LinkedList {
+  constructor(node = null) {
+    if (node) {
+      this.head = new Node(node);
+    } else {
+      this.head = node;
+    }
+
+  }
+
+  insert(value) {
+    if (this.head === null) {
+      this.head = new Node(value);
+    } else {
+      let temp = this.head;
+      this.head = new Node(value);
+      this.head.next = temp;
+    }
+    return value;
+
+  }
+
+  includes(value) {
+    let member = this.head;
+    while (member !== null) {
+      if (member.value === value) {
+        return true;
+      }
+      member = member.next;
+    }
+    return false;
+  }
+
+  toString() {
+    if (this.head === null) {
+      throw new Error('Linked list is empty ;(');
+    }
+    let st = [];
+    let node = this.head;
+    while (node) {
+      st.push("{ " + node.value + " }");
+      node = node.next;
+    }
+    st.push('NULL');
+    return st.join(' -> ');
+  }
+
+  append(value) {
+    if (this.head === null) {
+      this.head = new Node(value);
+    }else {
+      let element = this.head;
+      while (element.next) {
+        element = element.next;
+      }
+      element.next = new Node(value);
+    }
+  }
+}
+
