@@ -181,7 +181,7 @@ class LinkedList {
   append(value) {
     if (this.head === null) {
       this.head = new Node(value);
-    }else {
+    } else {
       let element = this.head;
       while (element.next) {
         element = element.next;
@@ -190,7 +190,29 @@ class LinkedList {
     }
   }
 
+
   insertBefore(value, newVal) {
+    if (this.head === null) {
+      throw new Error('Here is nothing ;(');
+    }
+    console.log(this.head.value === value)
+    if (this.head.value === value) {
+      let temp = this.head;
+      this.head = new Node(newVal, temp)
+      return;
+    }
+    let element = this.head;
+    while (element.next) {
+      if (element.next.value === value) {
+        element.next = new Node(newVal, element.next);
+        return;
+      }
+      element = element.next;
+    }
+  }
+
+
+  insertAfter(value, newVal) {
     if (this.head === null) {
       throw new Error('Here is nothing ;(');
     }
@@ -206,4 +228,16 @@ class LinkedList {
 
   }
 }
+
+// let a = new Node('b');
+let list = new LinkedList(10);
+// console.log(list.toString())
+list.insert(20);
+list.insert(2);
+list.append(3);
+list.insertBefore(10, 4)
+list.insertAfter(2, 46)
+list.insertBefore(2, 6)
+
+console.log(list.toString())
 
