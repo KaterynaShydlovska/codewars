@@ -189,5 +189,21 @@ class LinkedList {
       element.next = new Node(value);
     }
   }
+
+  insertBefore(value, newVal) {
+    if (this.head === null) {
+      throw new Error('Here is nothing ;(');
+    }
+    let element = this.head;
+    while (element) {
+      if (element.value === value) {
+        element.next = new Node(newVal, element.next);
+        return;
+      }
+      element = element.next;
+    }
+    throw new Error('No valid value');
+
+  }
 }
 
