@@ -291,4 +291,44 @@ function toQueryString(obj) {
   return r.slice(0, -1)
 }
 
+// Challenge 8
+// Given a non - empty array of integers, every element appears twice except for one.Find that single one.
+
+//   Note:
+
+// Your algorithm should have a linear runtime complexity.Could you implement it without using extra memory ?
+
+//   Example 1:
+
+// Input: [2, 2, 1]
+// Output: 1
+// Example 2:
+
+// Input: [4, 1, 2, 1, 2]
+// Output: 4
+
+var singleNumber = function (nums) {
+  let obj = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    if (obj[nums[i]]) {
+      obj[nums[i]] += 1
+      //  console.log('+1', obj);
+    } else {
+      obj[nums[i]] = 1
+      // console.log('=1', obj);
+    }
+  }
+  console.log(obj);
+  let output = Object.keys(obj);
+  for (let j = 0; j < output.length; j++) {
+    if (obj[output[j]] === 1) {
+      // console.log('i',obj[output[j]])
+      return obj[output[j]]
+
+    }
+  }
+
+
+};
 
