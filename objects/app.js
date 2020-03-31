@@ -324,7 +324,7 @@ var singleNumber = function (nums) {
   for (let j = 0; j < output.length; j++) {
     if (obj[output[j]] === 1) {
       // console.log('i',obj[output[j]])
-      return obj[output[j]]
+      return output[j]
 
     }
   }
