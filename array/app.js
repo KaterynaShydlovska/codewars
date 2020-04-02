@@ -496,3 +496,52 @@ var sortArrayByParity = function (A) {
   return out;
 
 };
+
+
+// Challenge 17
+
+// Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+
+// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+//   Example:
+
+// Given nums = [2, 7, 11, 15], target = 9,
+
+//   Because nums[0] + nums[1] = 2 + 7 = 9,
+// return [0, 1].
+
+var twoSum = function (nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      // console.log(nums[i], nums[j])
+      if (nums[i] + nums[j] === target) {
+        return [i, j]
+      }
+    }
+  }
+};
+
+
+// Challenge 18
+
+// Write a function that accepts two arguments: an array / list of integers and another integer(n).
+
+// Determine the number of times where two integers in the array have a difference of n.
+
+// For example:
+
+// [1, 1, 5, 6, 9, 16, 27], n = 4  -- > 3  #(1, 5), (1, 5), (5, 9)
+// [1, 1, 3, 3], n = 2             -- > 4  #(1, 3), (1, 3), (1, 3), (1, 3)
+
+const intDiff = (arr, n) => {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] - arr[j] === n || arr[j] - arr[i] === n) {
+        count += 1;
+      }
+    }
+  }
+  return count;
+}
