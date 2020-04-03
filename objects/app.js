@@ -374,3 +374,46 @@ function validAnagram(str1, str2) {
 
 console.log(validAnagram(str1, str2));
 
+// Challenge 10
+
+//  Given to positive integers, find  out if the two numbers have the same friquency of diggits.
+//  solution MUST have time complexities O(N)
+
+function sameFrequency(n, m) {
+  let obj1 = {};
+  let obj2 = {};
+  let newN = n.toString().split('');
+  let newM = m.toString().split('');
+  if (newN.length !== newM.length) {
+    return false;
+  }
+
+  for (let i = 0; i < newN.length; i++) {
+    if (obj1[newN[i]]) {
+      obj1[newN[i]] += 1;
+    } else {
+      obj1[newN[i]] = 1;
+    }
+  }
+
+  for (let j = 0; j < newM.length; j++) {
+    if (obj2[newM[j]]) {
+      obj2[newM[j]] += 1;
+    } else {
+      obj2[newM[j]] = 1;
+    }
+  }
+
+  for (let key in obj1) {
+    if (!(key in obj1)) {
+      return false;
+    }
+    if (obj2[key] !== obj1[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+sameFrequency(n, m);
+
