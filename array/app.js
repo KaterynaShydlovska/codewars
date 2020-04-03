@@ -576,3 +576,15 @@ function twosDifference(input) {
   }
   return arr;
 }
+
+
+// Challenge 20
+
+// Count Uniqu number in arr
+
+let arr = [1, 1, 1, 1, 2]
+function countUniqueValues(arr) {
+  return new Set(arr).size;
+}
+
+countUniqueValues(arr);
