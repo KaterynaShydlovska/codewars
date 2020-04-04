@@ -588,3 +588,27 @@ function countUniqueValues(arr) {
 }
 
 countUniqueValues(arr);
+
+// Challenge 21
+
+// Write a function with takes arr and number. Need to check if any pair average in arr === to given number
+let arr = [1, 3, 3, 5, 6, 7, 10, 12, 19];
+
+let n = 8; 
+
+function averagePair(arr, n) {
+  let i = 0;
+  let j = arr.length - 1
+  while (i < j) {
+    let sum = (arr[i] + arr[j]) / 2;
+    if (sum === n) {
+      return true;
+    }
+    if (sum > n) {
+      j--;
+    } else {
+      i++;
+    }
+  }
+  return false;
+}
