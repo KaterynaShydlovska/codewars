@@ -417,3 +417,20 @@ function sameFrequency(n, m) {
 
 sameFrequency(n, m);
 
+// Challenge 11
+
+//  Find if there are any duplicates
+
+// areThereDuplicates Solution(Frequency Counter)
+
+function areThereDuplicates() {
+  let collection = {}
+  for (let val in arguments) {
+    collection[arguments[val]] = (collection[arguments[val]] || 0) + 1
+  }
+  for (let key in collection) {
+    if (collection[key] > 1) return true
+  }
+  return false;
+}
+
