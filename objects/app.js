@@ -449,3 +449,16 @@ function dominator(arr) {
   } return -1
 }
 
+// function dominator(arr) {
+//   let obj = {};
+
+//   for (let i = 0; i < arr.length; i++) {
+//     if (obj[arr[i]]) {
+//       obj[arr[i]] += 1;
+//     } else {
+//       obj[arr[i]] = 1;
+//     }
+//     if (obj[arr[i]] > arr.length / 2) return arr[i]
+//   } return -1
+// }
+
