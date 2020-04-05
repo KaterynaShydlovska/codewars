@@ -1,10 +1,12 @@
 // write a function to add up the sum of each row in a matrix of arbitrary size, and return an array with the appropriate values
 
 
-let matrix = [[1, 2, 3],
+let matrix = [
+[1, 2, 3],
 [3, 5, 7],
 [1, 7, 10],
-[1, 7, 10, 12, 15]];
+[1, 7, 10, 12, 15]
+];
 
 
 function sumOfRows(matrix) {
