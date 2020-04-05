@@ -12,8 +12,6 @@
 
    * [binarysearch](https://github.com/KaterynaShydlovska/codewars/blob/master/binarysearch/app.js)
 
-   * [fibonacci](https://github.com/KaterynaShydlovska/codewars/blob/master/fibonacci/app.js)
-
    * [hashTable](https://github.com/KaterynaShydlovska/codewars/blob/master/hashTable/app.js)
    
    * [integers](https://github.com/KaterynaShydlovska/codewars/blob/master/integers/app.js)
