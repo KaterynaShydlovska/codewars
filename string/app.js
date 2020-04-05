@@ -278,3 +278,23 @@ function capitalize(s) {
   arr.push(output2)
   return arr;
 }
+
+// Challenge 8
+
+//  Write a function called isSubsequence whichbtakes in two strings and checks whether the characters in the first strng from a subsequence of the characters in the second string, in other words, the function should check whether the characters in this string apper somewhere in the second string, whithout their order changng.
+let str1 = 'abc'
+let str2 = 'abracadabra'
+
+function isSubsequence(str1, str2) {
+  var i = 0;
+  var j = 0;
+  if (!str1) return true;
+  while (j < str2.length) {
+    if (str2[j] === str1[i]) i++;
+    if (i === str1.length) return true;
+    j++;
+  }
+  return false;
+}
+
+isSubsequence(str1, str2);
