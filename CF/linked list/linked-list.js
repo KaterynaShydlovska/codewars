@@ -241,3 +241,167 @@ list.insertBefore(2, 6)
 
 console.log(list.toString())
 
+
+// Chalenge 3
+
+// Feature Tasks
+// Write a method for the Linked List class which takes a number, k, as a parameter.Return the node’s value that is k from the end of the linked list.You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+//   Example
+// ll.kthFromEnd(k)
+// Input ll	Arg k	Output
+// head -> [1] -> [3] -> [8] -> [2] -> X	0	2
+// head -> [1] -> [3] -> [8] -> [2] -> X	2	3
+// head -> [1] -> [3] -> [8] -> [2] -> X	6	Exception
+
+
+
+class Node {
+  constructor(value, node = null) {
+    this.value = value;
+    this.next = node;
+  }
+}
+
+class LinkedList {
+  constructor(node = null) {
+    if (node) {
+      this.head = new Node(node);
+      this.size = 1;
+    } else {
+      this.head = node;
+      this.size = 0;
+    }
+
+
+  }
+
+
+
+  insert(value) {
+    if (this.head === null) {
+      this.head = new Node(value);
+    } else {
+      let temp = this.head;
+      this.head = new Node(value);
+      this.head.next = temp;
+    }
+    this.size += 1;
+    return value;
+
+  }
+
+  includes(value) {
+    let member = this.head;
+    while (member !== null) {
+      if (member.value === value) {
+        return true;
+      }
+      member = member.next;
+    }
+    return false;
+  }
+
+  toString() {
+    if (this.head === null) {
+      throw new Error('Linked list is empty ;(');
+    }
+    let st = [];
+    let node = this.head;
+    while (node) {
+      st.push("{ " + node.value + " }");
+      node = node.next;
+    }
+    st.push('NULL');
+    return st.join(' -> ');
+  }
+
+  append(value) {
+    if (this.head === null) {
+      this.head = new Node(value);
+    } else {
+      let element = this.head;
+      while (element.next) {
+        element = element.next;
+      }
+      element.next = new Node(value);
+    }
+    this.size += 1;
+  }
+
+
+  insertBefore(value, newVal) {
+    if (this.head === null) {
+      throw new Error('Here is nothing ;(');
+    }
+    // console.log(this.head.value === value)
+    if (this.head.value === value) {
+      let temp = this.head;
+      this.head = new Node(newVal, temp)
+      this.size += 1;
+      return;
+    }
+    let element = this.head;
+    while (element.next) {
+      if (element.next.value === value) {
+        element.next = new Node(newVal, element.next);
+        this.size += 1;
+        return;
+      }
+      element = element.next;
+    }
+  }
+
+
+  insertAfter(value, newVal) {
+    if (this.head === null) {
+      throw new Error('Here is nothing ;(');
+    }
+    let element = this.head;
+    while (element) {
+      if (element.value === value) {
+        element.next = new Node(newVal, element.next);
+        this.size += 1;
+        return;
+      }
+      element = element.next;
+    }
+    throw new Error('No valid value');
+
+  }
+
+
+  kthFromEnd(k) {
+    if (k > this.size - 1) {
+      throw new Error('Exception');
+    } else {
+      // console.log(this.size)
+      let steps = (this.size - 1) - k;
+      let element = this.head;
+
+      while (steps) {
+        element = element.next;
+        steps--;
+      }
+      return element.value;
+    }
+  }
+}
+
+
+
+
+// let a = new Node('b');
+let list = new LinkedList(10);
+// console.log(list.toString())
+list.insert(20);
+list.insert(2);
+list.append(3);
+list.insertBefore(10, 4)
+list.insertAfter(2, 46)
+list.insertBefore(2, 6)
+
+console.log(list.kthFromEnd(3));
+console.log(list.kthFromEnd(16));
+console.log(list.toString())
+
+
