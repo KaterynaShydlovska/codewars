@@ -612,3 +612,40 @@ function averagePair(arr, n) {
   }
   return false;
 }
+
+// Challenge 22
+// Coding Exercise 7: Sliding Window - maxSubarraySum
+
+// find the max sum of subarray
+
+// let arr = [100, 200, 300, 400];
+// let n = 2;
+
+let arr = [3, -2, 7, -4, 1, -1, 4, -2, 1];
+let n = 2;
+
+
+function maxSubarraySum(arr, n) {
+  let maXsum = 0;
+  // let out=[];
+  if (n > arr.length) {
+    return null;
+  }
+
+  for (let i = 0; i <= n - 1; i++) {
+    maXsum += arr[i];
+    //  console.log(sum)
+    //  out.push(sum);
+  }
+  let tempSum = maXsum;
+  for (let j = n; j < arr.length; j++) {
+    let minus = arr[j - n]
+    let added = arr[j]
+    tempSum = tempSum - minus + added;
+    if (tempSum > maXsum) {
+      maXsum = tempSum
+    }
+    //  console.log(tempSum) 
+  }
+  return maXsum;
+}
