@@ -307,3 +307,29 @@ function isSubsequence(str1, str2) {
   if (str2[0] === str1[0]) return isSubsequence(str1.slice(1), str2.slice(1))
   return isSubsequence(str1, str2.slice(1))
 }
+
+
+// Challenge 9
+
+// Coding Exercise 9: Sliding Window - findLongestSubstring
+
+let str = '' // 0
+let str = 'thisisawsome'; // 6
+
+function findLongestSubstring(str) {
+  let longest = 0;
+  let seen = {};
+  let start = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    if (seen[char]) {
+      start = Math.max(start, seen[char]);
+    }
+    // index - beginning of substring + 1 (to include current in count)
+    longest = Math.max(longest, i - start + 1);
+    // store the index of the next char so as to not double count
+    seen[char] = i + 1;
+  }
+  return longest;
+}
