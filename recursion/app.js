@@ -85,3 +85,14 @@ function power(n, times) {
 }
 
 power(2, 3) 
+
+// Challenge 5
+
+// Write a function which tekes arr of numbers and should return product of the numbers.
+
+function productOfArray(arr) {
+  if (arr.length === 0) {
+    return 1;
+  }
+  return arr[0] * productOfArray(arr.slice(1));
+}
