@@ -100,3 +100,22 @@ function productOfArray(arr) {
   }
   return arr[0] * productOfArray(arr.slice(1));
 }
+
+
+// Challenge 6
+
+// Write a function which takes str and should retern reverse str
+
+function reverse(str, first = 0, end = str.length - 1) {
+  if (first > end || first === end) {
+    return str.join("");
+  }
+  if (typeof (str) === "string") {
+    str = str.split("");
+  }
+  let temp = str[first];
+  str[first] = str[end];
+  str[end] = temp;
+  return reverse(str, first + 1, end - 1);
+}
+reverse(str);
