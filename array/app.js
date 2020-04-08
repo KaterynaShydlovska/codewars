@@ -783,3 +783,41 @@ function productOfArray(arr) {
   }
   return arr[0] * productOfArray(arr.slice(1));
 }
+
+
+
+// Challenge 26
+
+// Group Anagrams
+// Given an array of strings, group anagrams together.
+
+//   Example:
+
+// Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
+//   Output:
+// [
+//   ["ate", "eat", "tea"],
+//   ["nat", "tan"],
+//   ["bat"]
+// ]
+// Note:
+
+// All inputs will be in lowercase.
+// The order of your output does not matter.
+
+var groupAnagrams = function (strs) {
+  let obj = {};
+
+  for (let i = 0; i < strs.length; i++) {
+    let letters = strs[i].split('').sort()
+    if (obj[letters]) {
+      obj[letters].push(strs[i])
+    } else {
+      obj[letters] = [strs[i]]
+    }
+  }
+
+  const keys = Object.keys(obj);
+  const values = keys.map(function (v) { return obj[v]; })
+  return values;
+};
