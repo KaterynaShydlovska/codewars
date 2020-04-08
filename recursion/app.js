@@ -73,7 +73,11 @@ function recursiveRange(n) {
   if (n === 1) return 1;
   return n + recursiveRange(n - 1);
 }
-
+// or
+function recursiveRange(x) {
+  if (x === 0) return 0;
+  return x + recursiveRange(x - 1);
+}
 
 // Challenge 4
 
