@@ -119,3 +119,29 @@ function reverse(str, first = 0, end = str.length - 1) {
   return reverse(str, first + 1, end - 1);
 }
 reverse(str);
+
+
+// Challenge 7
+
+//  Write a function is Palinrome which return true if the string passed is palindrome(read the same word and backward) or false if not.
+// isPalindrome('awesome') // false
+// isPalindrome('foobar') // false
+// isPalindrome('tacocat') // true
+// isPalindrome('amanaplanacanalpanama') // true
+// isPalindrome('amanaplanacanalpandemonium') // false
+
+function isPalindrome(string) {
+  if (string.length <= 1) {
+    return true;
+  }
+
+  let [firstLetter] = string;
+  let lastLetter = string[string.length - 1];
+
+  if (firstLetter === lastLetter) {
+    let stringWithoutFirstAndLastLetters = string.substring(1, string.length - 1);
+    return isPalindrome(stringWithoutFirstAndLastLetters);
+  } else {
+    return false;
+  }
+}
