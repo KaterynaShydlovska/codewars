@@ -526,6 +526,9 @@ function expressionMatter(a, b, c) {
 
 }
 
+
+// Challenge 19
+
 // Write an algorithm to determine if a number n is "happy".
 
 // A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1(where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.
@@ -558,3 +561,22 @@ var isHappy = function (n, counter = 0) {
     return isHappy(sum, counter);
   }
 };
+
+// Challenge 20
+
+// Wrire a function alled power which accepts a base and exponent. The function should retern a power of the base to exponent.The function should mimic functionality of Nath.pow() - do no worry about negative bases and exponents.
+
+function power(n, times) {
+  let sum = 1;
+  if (times === 0) {
+    return 1;
+  } else {
+    while (times > 0) {
+      sum *= n;
+      times--
+    }
+  }
+  return sum;
+}
+
+power(n, times);
