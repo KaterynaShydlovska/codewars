@@ -2,6 +2,8 @@
 
 // Challenge 1
 
+//  amazon interview challenge (count islands). 
+
 let arr = [[1, 1, 0, 0],
 [0, 0, 0, 1],
 [1, 0, 0, 0],
@@ -36,6 +38,7 @@ function findIsland(arr) {
 
 findIsland(arr);
 
+// Challenge 2
 
 // You need to design a recursive function called replicate which will receive arguments times and number.
 
@@ -59,5 +62,17 @@ function help(newArr, times, number) {
     newArr.push(number)
     return help(newArr, times - 1, number);
   }
+
+}
+
+// Challenge 3
+
+// Write a function with takes a number and and adds up all the numbers form 0 to passed number and return their sum
+
+function recursiveRange(n) {
+  if (n === 1) return 1;
+
+  return n + recursiveRange(n - 1);
+
 
 }
