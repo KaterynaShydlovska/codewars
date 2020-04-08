@@ -761,3 +761,17 @@ function swap(nums, i, j) {
   nums[i] = nums[j];
   nums[j] = temp;
 }
+
+// Challenge 25
+
+// Write a function which tekes arr of numbers and should return product of the numbers.
+
+function productOfArray(arr) {
+  let out = 1;
+  for (let i = 0; i < arr.length; i++) {
+    out *= arr[i];
+  }
+  return out;
+
+
+}
