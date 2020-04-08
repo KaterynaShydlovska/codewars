@@ -71,8 +71,17 @@ function help(newArr, times, number) {
 
 function recursiveRange(n) {
   if (n === 1) return 1;
-
   return n + recursiveRange(n - 1);
-
-
 }
+
+
+// Challenge 4
+
+// Wrire a function called power which accepts a base and exponent. The function should retern a power of the base to exponent.The function should mimic functionality of Nath.pow() - do no worry about negative bases and exponents.
+
+function power(n, times) {
+  if (times === 0) return 1;
+  return n * power(n, times - 1)
+}
+
+power(2, 3) 
