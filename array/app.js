@@ -821,3 +821,100 @@ var groupAnagrams = function (strs) {
   const values = keys.map(function (v) { return obj[v]; })
   return values;
 };
+
+// Best Time to Buy and Sell Stock II
+
+// Say you have an array for which the ith element is the price of a given stock on day i.
+
+// Design an algorithm to find the maximum profit.You may complete as many transactions as you like(i.e., buy one and sell one share of the stock multiple times).
+
+//   Note: You may not engage in multiple transactions at the same time(i.e., you must sell the stock before you buy again).
+
+//     Example 1:
+
+// Input: [7, 1, 5, 3, 6, 4]
+// Output: 7
+// Explanation: Buy on day 2(price = 1) and sell on day 3(price = 5), profit = 5 - 1 = 4.
+// Then buy on day 4(price = 3) and sell on day 5(price = 6), profit = 6 - 3 = 3.
+// Example 2:
+
+// Input: [1, 2, 3, 4, 5]
+// Output: 4
+// Explanation: Buy on day 1(price = 1) and sell on day 5(price = 5), profit = 5 - 1 = 4.
+// Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are
+// engaging multiple transactions at the same time.You must sell before buying again.
+//   Example 3:
+
+// Input: [7, 6, 4, 3, 1]
+// Output: 0
+// Explanation: In this case, no transaction is done, i.e.max profit = 0.
+
+var maxProfit = function (prices) {
+  let i = 0, j = 1;
+  let profits = 0;
+  for (; j < prices.length;) {
+    if (prices[j] - prices[i] > 0) {
+      profits += prices[j] - prices[i];
+      j++;
+      i++;
+    } else {
+      i++;
+      j++;
+    }
+  }
+  return profits;
+};
+
+
+// Challenge 27
+
+// Counting Elements
+
+// Given an integer array arr, count element x such that x + 1 is also in arr.
+
+// If there're duplicates in arr, count them seperately.
+
+
+
+// Example 1:
+
+// Input: arr = [1, 2, 3]
+// Output: 2
+// Explanation: 1 and 2 are counted cause 2 and 3 are in arr.
+//   Example 2:
+
+// Input: arr = [1, 1, 3, 3, 5, 5, 7, 7]
+// Output: 0
+// Explanation: No numbers are counted, cause there's no 2, 4, 6, or 8 in arr.
+// Example 3:
+
+// Input: arr = [1, 3, 2, 3, 5, 0]
+// Output: 3
+// Explanation: 0, 1 and 2 are counted cause 1, 2 and 3 are in arr.
+//   Example 4:
+
+// Input: arr = [1, 1, 2, 2]
+// Output: 2
+// Explanation: Two 1s are counted cause 2 is in arr.
+
+var countElements = function (arr) {
+  let counter = 0;
+  let obj = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    if (obj[arr[i]]) {
+      obj[arr[i]] += 1;
+    } else {
+      obj[arr[i]] = 1;
+    }
+  }
+  for (let j = 0; j < arr.length; j++) {
+    if (obj[arr[j] + 1]) {
+      counter += 1;
+      // obj[arr[j]+1]-=1;
+
+    }
+  }
+  return counter;
+
+};
