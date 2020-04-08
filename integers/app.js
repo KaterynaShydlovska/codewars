@@ -564,15 +564,15 @@ var isHappy = function (n, counter = 0) {
 
 // Challenge 20
 
-// Wrire a function alled power which accepts a base and exponent. The function should retern a power of the base to exponent.The function should mimic functionality of Nath.pow() - do no worry about negative bases and exponents.
+// Wrire a function called power which accepts a base and exponent. The function should retern a power of the base to exponent.The function should mimic functionality of Nath.pow() - do no worry about negative bases and exponents.
 
 function power(n, times) {
-  let sum = 1;
+  let output = 1;
   if (times === 0) {
     return 1;
   } else {
     while (times > 0) {
-      sum *= n;
+      output*= n;
       times--
     }
   }
@@ -580,3 +580,18 @@ function power(n, times) {
 }
 
 power(n, times);
+
+
+
+// Challenge 21
+
+// Wrire a function factorial which accepts a number and return the factorial of that number. The factorial is the product of the integer and all the integers below it; (4!) === 4*3*2*1 === 24.
+//  Factorial zero (0!) always === 1!
+
+
+function factorial(f) {
+  if (f === 1 || f === 0) return 1;
+
+  return f * factorial(f - 1);
+
+}
