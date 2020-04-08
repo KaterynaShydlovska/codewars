@@ -33,4 +33,24 @@ function fib(n) {
 console.log(fib(6));
 
 
+// Challenge 3
+
+// Write a function with accepts position of fibonacci num and return the number of this position.
+
+//  fib =1,1,2,3,5,8.....
+
+// fib(4) // 3
+// fib(10) // 55
+// fib(28) // 317811
+// fib(35) // 9227465
+
+function fib(n) {
+  if (n <= 2) {
+    return 1;
+  } else {
+    return fib(n - 1) + fib(n - 2)
+  }
+}
+
+
 
