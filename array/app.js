@@ -945,3 +945,24 @@ function inAscOrder(arr) {
   }
   return true;
 }
+
+
+// Challenge 29
+
+// Writea fnction called flatten which takes arr with arrs and return arr with all flatten values;
+// function flatten(){
+//   // add whatever parameters you deem necessary - good luck!
+// }
+
+// flatten([1, 2, 3, [4, 5] ]) // [1, 2, 3, 4, 5]
+// flatten([1, [2, [3, 4], [[5]]]]) // [1, 2, 3, 4, 5]
+// flatten([[1],[2],[3]]) // [1,2,3]
+// flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]) // [1,2,3
+
+
+
+function flatten(arr) {
+  return arr.reduce(function (flat, toFlatten) {
+    return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
+  }, []);
+}
