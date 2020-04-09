@@ -145,3 +145,14 @@ function isPalindrome(string) {
     return false;
   }
 }
+// or
+function isPalindrome(string, first = 0, last = string.length - 1) {
+  if (string.length <= 1 || first > last) {
+    return true;
+  }
+  if (string[first] !== string[last]) {
+    return false;
+  }
+  return isPalindrome(string, first + 1, last - 1);
+}
+isPalindrome(string)
