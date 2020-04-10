@@ -378,3 +378,18 @@ var backspaceCompare = function (S, T) {
   }
   return build(S) === build(T);
 };
+
+
+// Challenge 10
+
+// Given aray with strings capitalize the first latter in the each string.
+
+function capitalizeFirst(arr, position = 0) {
+  if (position > arr.length - 1) {
+    return arr;
+  }
+  arr[position] = arr[position].replace(arr[position][0], arr[position][0].toUpperCase());
+  return capitalizeFirst(arr, position + 1)
+}
+
+// capitalizeFirst(['car','taco','banana']); // ['Car','Taco','Banana']
