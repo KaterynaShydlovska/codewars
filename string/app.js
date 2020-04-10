@@ -393,3 +393,18 @@ function capitalizeFirst(arr, position = 0) {
 }
 
 // capitalizeFirst(['car','taco','banana']); // ['Car','Taco','Banana']
+
+
+// Challenge 11
+
+// Given aray with strings capitalize all words in the each string.
+
+function capitalizeWords(arr, position = 0) {
+  if (position > arr.length - 1) {
+    return arr;
+  }
+  arr[position] = arr[position].replace(arr[position], arr[position].toUpperCase());
+  return capitalizeWords(arr, position + 1)
+}
+// let words = ['i', 'am', 'learning', 'recursion'];
+// capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
