@@ -138,3 +138,22 @@ function search(nums, target) {
   return false;
 };
 search(nums, target);
+
+
+
+// Challenge 4
+
+function binarySearch(arr, n, l = 0, r = arr.length - 1) {
+  let mid = Math.floor((l + r) / 2);
+  if (l > r) {
+    return -1
+  }
+
+  if (arr[mid] === n) {
+    return mid
+  } else if (n < arr[mid]) {
+    return binarySearch(arr, n, l, mid - 1)
+  } else if (n > arr[mid]) {
+    return binarySearch(arr, n, mid + 1, r)
+  }
+}

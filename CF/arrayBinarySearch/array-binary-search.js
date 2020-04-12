@@ -54,3 +54,6 @@ function binarySearch(first, last, arr) {
 
 binarySearch(0, arr.length - 1, arr);
 
+
+
+
