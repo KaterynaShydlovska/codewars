@@ -995,3 +995,5 @@ reverse = function (array) {
   }
   return newArray;
 }
+
+// Challenge 31
