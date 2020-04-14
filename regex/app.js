@@ -65,3 +65,25 @@ function validate(password) {
   console.log(password)
   return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])[A-Za-z0-9]{6,}$/.test(password);
 }
+
+// Challenge 5
+
+// I will give you a string.You respond with "VALID" if the string meets the requirements or "INVALID" if it does not.
+
+// Passwords must abide by the following requirements:
+
+// More than 3 characters but less than 20.
+
+// Must contain only alphanumeric characters.
+
+// Must contain letters and numbers.
+
+function validPass(password) {
+
+  var reg1 = new RegExp(/[a-z]/, 'g')
+  var reg2 = new RegExp(/\d/, 'g');
+  var reg3 = new RegExp(/\W|_/, 'g');
+  var reg4 = new RegExp(/^[A-Za-z0-9]{3,20}$/, 'g');
+  return reg1.test(password) && reg2.test(password) && (reg3.test(password) == false) && reg4.test(password) ?
+    "VALID" : "INVALID"
+}
