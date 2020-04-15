@@ -1016,3 +1016,16 @@ function sumEvenNumbers(input) {
   }
   return sum;
 }
+
+
+// // Challenge 32
+// Implement a function that returns the minimal and the maximal value of a list(in this order).
+
+function getMinMax(arr) {
+  console.log(arr)
+  let newArr = [];
+  newArr.push(Math.min(...arr));
+  newArr.push(Math.max(...arr));
+  return newArr;
+};
+
