@@ -500,3 +500,33 @@ var obj2 = {
 
 nestedEvenSum(obj1); // 6
 nestedEvenSum(obj2); // 10
+
+
+// Challenge 12
+
+// Your task
+// You are given a dictionary / hash / object containing some languages and your test results in the given languages.Return the list of languages where your test score is at least 60, in descending order of the results.
+
+//   Note: the scores will always be unique(so no duplicate values)
+
+// Examples
+// { "Java": 10, "Ruby": 80, "Python": 65 } --> ["Ruby", "Python"]
+// { "Hindi": 60, "Dutch" : 93, "Greek": 71 } --> ["Dutch", "Greek", "Hindi"]
+// { "C++": 50, "ASM": 10, "Haskell": 20 } --> []
+// My other katas
+// If you enjoyed this kata then please try my other katas! : -)
+
+function myLanguages(results) {
+  let arr = [];
+  for (let key in results) {
+    if (results[key] >= 60) {
+      arr.push([key, results[key]])
+    }
+  }
+  let endArr = []
+  arr = arr.sort((a, b) => b[1] - a[1]);
+  for (j in arr) {
+    endArr.push(arr[j][0])
+  }
+  return endArr;
+}
