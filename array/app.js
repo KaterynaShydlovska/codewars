@@ -1076,3 +1076,36 @@ function mixFruit(arr) {
   return out;
 }
 
+
+// Challenge 35
+
+// Reverse arr
+
+// Write a function that will take in any array and reverse it.
+
+// Sounds simple doesn't it?
+
+// NOTES:
+
+// Array should be reversed in place!(no need to return it)
+// Usual builtins have been deactivated.Don't count on them.
+// You'll have to do it fast enough, so think about performances
+
+function reverse(arr) {
+  let i = 0;
+  let j = arr.length - 1;
+  while (i < j) {
+    swap(arr, i, j);
+    i++;
+    j--;
+  }
+
+  return arr;
+}
+
+function swap(arr, i, j) {
+  let temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+}
+
