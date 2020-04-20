@@ -461,9 +461,12 @@ function bigInt(a, b) {
 
 function abbrevName(name) {
   name = name.split(' ');
+  // console.log(name);
   let str1 = '';
   let str2 = '';
-  str1 += name[0].slice(0, 1)
-  str2 += name[1].slice(0, 1)
+  // for(let i=0; i<name.length; i++){
+  str1 += name[0].toUpperCase().slice(0, 1)
+  str2 += name[1].toUpperCase().slice(0, 1)
+  // }
   return str1 + '.' + str2;
 }
