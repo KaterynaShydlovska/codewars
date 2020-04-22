@@ -501,6 +501,7 @@ function stringify(list) {
 
 }
 
+// Challenge 7
 
 // Linked Lists - Append
 
@@ -529,6 +530,71 @@ function append(listA, listB) {
   temp.next = listB;
   return listA;
 }
+
+
+
+// Challenge 8
+
+// Linked Lists - Sorted Insert
+
+// Write a SortedInsert() function which inserts a node into the correct location of a pre - sorted linked list which is sorted in ascending order.SortedInsert takes the head of a linked list and data used to create a node as arguments.SortedInsert() should also return the head of the list.
+
+//   sortedInsert(1 -> 2 -> 3 -> null, 4) === 1 -> 2 -> 3 -> 4 -> null)
+// sortedInsert(1 -> 7 -> 8 -> null, 5) === 1 -> 5 -> 7 -> 8 -> null)
+// sortedInsert(3 -> 5 -> 9 -> null, 7) === 3 -> 5 -> 7 -> 9 -> null)
+
+
+function Node(data, nxt) {
+  this.data = data;
+  this.next = nxt;
+}
+function sortedInsert(head, data) {
+  if (!head || data < head.data) return new Node(data, head);
+  else {
+    head.next = sortedInsert(head.next, data);
+    return head;
+  }
+}
+
+// or
+
+function Node(data) {
+  this.data = data;
+  this.next = null;
+}
+
+function sortedInsert(head, data) {
+  var node = new Node(data);
+  var next = head;
+  if (!head) {
+    head = node;
+  } else if (head.data > node.data) {
+    node.next = head;
+    head = node;
+  } else {
+    while (next.next && next.next.data < node.data) {
+      next = next.next
+    };
+    node.next = next.next;
+    next.next = node;
+  }
+  return head;
+}
+
+// or
+
+function Node(data, next = null) {
+  this.data = data;
+  this.next = next;
+}
+
+function sortedInsert(head, data) {
+  if (head == null)
+    return new Node(data);
+  else if (head.data > data)
+    return new Node(data, head);
+  else
+    return new Node(head.data, sortedInsert(head.next, data));
 
 
 
