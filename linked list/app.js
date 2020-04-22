@@ -325,6 +325,149 @@ list.push(999)
 
 
 
+// my implementation of linked list
+
+
+
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
+
+class LinkedList {
+  constructor() {
+    this.size = 0;
+    this.head = null;
+    this.tail = null;
+
+  }
+
+  push(val) {
+    if (!this.head) {
+      this.head = new Node(val);
+      this.tail = this.head;
+    } else {
+      this.tail.next = new Node(val);
+      this.tail = this.tail.next;
+    }
+    this.size += 1;
+    return this;
+
+  }
+  pop() {
+    if (!this.head) return null;
+    // 
+    let first = this.head;
+    let second = first.next
+    while (second.next) {
+      first = second;
+      second = second.next;
+    }
+    this.tail = first;
+    first.next = null;
+    this.size--;
+    if (this.size === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return second.val;
+  }
+  shift() {
+    if (!this.head) return undefined;
+    let removed = this.head;
+    this.head = this.head.next;
+    this.size--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return removed.val;
+  }
+  unshift(val) {
+    if (!this.head) {
+      this.head = new Node(val);
+      this.tail = this.head;
+    } else {
+      let oldHead = this.head;
+      this.head = new Node(val);
+      this.head.next = oldHead;
+    }
+    this.size++;
+    return this;
+  }
+
+  get(index) {
+    if (this.size === 0) return undefined;
+    if (index > this.size) return undefined;
+    let counter = 0;
+    let node = this.head;
+    while (index !== counter) {
+      node = node.next;
+      counter++;
+    }
+    return node;
+  }
+
+  set(index, val) {
+    let foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.val = val;
+      return true;
+    }
+    return false;
+  }
+
+  insert(index, val) {
+    if (this.size === 0) return undefined;
+    if (index > this.size) return undefined;
+    if (index === this.size) return !!this.push(val);
+    if (index === 0) return !!this.unshift(val);
+
+    let prev = this.get(index - 1);
+    let temp = prev.next;
+    prev.next = new Node(val);
+    prev.next.next = temp;
+    this.size++;
+    return true;
+
+  }
+
+  remove(index) {
+    if (this.size === 0) return undefined;
+    if (index > this.size) return undefined;
+    if (index === this.size) return !!this.pop();
+    if (index === 0) return !!this.shift();
+
+    let prev = this.get(index - 1);
+    let removed = prev.next;
+    prev.next = prev.next.next;
+    return removed;
+  }
+
+}
+
+var list = new LinkedList()
+list.push(1) // added node  to the end of list with val 1
+list.push(21)
+list.push(250)
+list.push(350)
+list.push(999)
+list.pop() // removed last node with val 999
+list.shift() // removed first node with val 1
+list.unshift(20) // added 1st node with val 20
+list.get(1) // got node with index 1 with val 21
+list.insert(0, 10000) // added node to position 0 with val 10000
+list.remove(1) // removed node with index 1 with val 20
+
+// console.log(list)
+
+
+
+
+
+
 
 
 
