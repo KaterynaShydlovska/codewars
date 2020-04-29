@@ -823,6 +823,62 @@ class DoublyLinkedList {
     }
     return runer;
   }
+
+  insert(index, val) {
+    if (index < 0 || index > this.length) return undefined;
+    let node = new Node(val);
+    if (index === this.length) return !!this.push(val);
+    if (index === 0) {
+      this.head.prev = node;
+      node.next = this.head;
+      this.head = node;
+    }
+    let inserted = this.head;
+    let afterInserted = inserted.next;
+    let count = 0;
+    while (count !== index) {
+      count++;
+      inserted.next;
+    }
+    inserted.next = node;
+    node.prev = inserted;
+    node.next = afterInserted;
+    afterInserted.prev = node;
+    this.length++;
+    return true;
+
+  }
+  remove(index) {
+    if (index >= this.length || index < 0) return undefined;
+    let removed;
+    if (index === 0) {
+      removed = this.head;
+      this.head = runer.next;
+      this.head.prev = null;
+      runer.next = null;
+      return removed;
+    }
+    if (index = this.tail) {
+      removed = this.tail;
+      this.tail = this.tail.prev;
+      this.tail.next = null;
+      return removed;
+    }
+    removed = this.head;
+    let beforeRemoved = removed.prev;
+    let afterRemoved = removed.next;
+    let count = 0;
+    while (this.head) {
+      if (count === removed) {
+        beforeRemoved.next = afterRemoved;
+        afterRemoved.prev = beforeRemoved;
+      }
+
+    }
+
+    length--;
+    return removed;
+  }
 }
 
 
