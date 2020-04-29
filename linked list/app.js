@@ -801,6 +801,17 @@ class DoublyLinkedList {
     return false;
 
   }
+
+  pop() {
+    if (!this.head) return undefined;
+
+    let removed = this.tail;
+    this.tail = removed.prev;
+    this.tail.next = null;
+    removed.prev = null;
+    this.length--;
+    return removed;
+  }
 }
 
 
