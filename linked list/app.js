@@ -766,6 +766,23 @@ class DoublyLinkedList {
     this.length--;
     return temp;
   }
+
+  unshift(val) {
+    if (!this.head) {
+      this.head = new Node(val);
+      this.tail = new Node(val);
+    } else {
+      let newNode = new Node(val);
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+
+    }
+    this.length++;
+    return this;
+
+
+  }
 }
 
 
