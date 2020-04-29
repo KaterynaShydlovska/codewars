@@ -812,6 +812,17 @@ class DoublyLinkedList {
     this.length--;
     return removed;
   }
+
+  get(index) {
+    if (index >= this.length || index < 0) return null;
+    let runer = this.head;
+    let count = 0;
+    while (count !== index) {
+      count++;
+      runer = runer.next;
+    }
+    return runer;
+  }
 }
 
 
