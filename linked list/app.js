@@ -783,6 +783,24 @@ class DoublyLinkedList {
 
 
   }
+
+  set(index, val) {
+    if (index >= this.length || index < 0) return false;
+
+    let runer = this.head;
+    let count = 0;
+    while (this.head) {
+      if (count === index) {
+        runer.val = val;
+        return true;
+      } else {
+        count++;
+        runer = runer.next;
+      }
+    }
+    return false;
+
+  }
 }
 
 
