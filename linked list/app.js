@@ -853,9 +853,9 @@ class DoublyLinkedList {
     let removed;
     if (index === 0) {
       removed = this.head;
-      this.head = runer.next;
+      this.head = removed.next;
       this.head.prev = null;
-      runer.next = null;
+      removed.next = null;
       return removed;
     }
     if (index = this.tail) {
