@@ -855,28 +855,28 @@ class DoublyLinkedList {
       removed = this.head;
       this.head = removed.next;
       this.head.prev = null;
-      removed.next = null;
+      this.length--;
       return removed;
     }
-    if (index = this.tail) {
+    if (index === this.length - 1) {
       removed = this.tail;
       this.tail = this.tail.prev;
       this.tail.next = null;
+      this.length--;
       return removed;
     }
     removed = this.head;
-    let beforeRemoved = removed.prev;
-    let afterRemoved = removed.next;
     let count = 0;
-    while (this.head) {
-      if (count === removed) {
-        beforeRemoved.next = afterRemoved;
-        afterRemoved.prev = beforeRemoved;
-      }
+    while (count !== index) {
+      count++;
+      removed = removed.next;
 
     }
-
-    length--;
+    let beforeRemoved = removed.prev;
+    let afterRemoved = removed.next;
+    beforeRemoved.next = afterRemoved;
+    afterRemoved.prev = beforeRemoved;
+    this.length--;
     return removed;
   }
 }
