@@ -1125,3 +1125,124 @@ function arrayPlusArray(arr1, arr2) {
   }
   return sum //something went wrong
 }
+
+// Challenge 37
+
+// Given an array of integers.
+
+// Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers.
+
+// If the input array is empty or null, return an empty array.
+
+//   Example
+// For input[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15], you should return [10, -65].
+
+function countPositivesSumNegatives(input) {
+  console.log(input)
+
+  let newAr = [];
+  let count = 0;
+  let sum = 0;
+  if (input === null || input.length === 0) {
+    return newAr;
+  } else {
+    for (let i = 0; i < input.length; i++) {
+      if (input[i] > 0) {
+        count++;
+      } else {
+        sum = sum + (input[i]);
+      }
+    }
+  }
+  newAr.push(count);
+  newAr.push(sum);
+  console.log(newAr);
+  return newAr;
+}
+
+
+// Challenge 38
+
+// This is a hard version of How many are smaller than me?.If you have troubles solving this one, have a look at the easier kata first.
+
+//   Write
+
+// function smaller(arr)
+// that given an array arr, you have to return the amount of numbers that are smaller than arr[i] to the right.
+
+// For example:
+
+// smaller([5, 4, 3, 2, 1]) === [4, 3, 2, 1, 0]
+// smaller(1, 2, 0) === [1, 1, 0]
+
+function smaller(arr) {
+  let newAr = [];
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    count = 0;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] > arr[j]) {
+        count++;
+      }
+    }
+    newAr.push(count);
+  }
+  return newAr;
+}
+// not officient solution
+
+
+// Challenge 39
+
+// Given two arrays of integers nums and index.Your task is to create target array under the following rules:
+
+// Initially target array is empty.
+// From left to right read nums[i] and index[i], insert at index index[i] the value nums[i] in target array.
+// Repeat the previous step until there are no elements to read in nums and index.
+// Return the target array.
+
+// It is guaranteed that the insertion operations will be valid.
+
+
+
+//   Example 1:
+
+// Input: nums = [0, 1, 2, 3, 4], index = [0, 1, 2, 2, 1]
+// Output: [0, 4, 1, 3, 2]
+// Explanation:
+// nums       index     target
+// 0            0[0]
+// 1            1[0, 1]
+// 2            2[0, 1, 2]
+// 3            2[0, 1, 3, 2]
+// 4            1[0, 4, 1, 3, 2]
+// Example 2:
+
+// Input: nums = [1, 2, 3, 4, 0], index = [0, 1, 2, 3, 0]
+// Output: [0, 1, 2, 3, 4]
+// Explanation:
+// nums       index     target
+// 1            0[1]
+// 2            1[1, 2]
+// 3            2[1, 2, 3]
+// 4            3[1, 2, 3, 4]
+// 0            0[0, 1, 2, 3, 4]
+// Example 3:
+
+// Input: nums = [1], index = [0]
+// Output: [1]
+
+var createTargetArray = function (nums, index) {
+  let newArr = [];
+  let i = 0;
+  let j = 0;
+  while (i < nums.length && j < index.length) {
+    newArr.splice(index[j], 0, nums[i])
+    i++;
+    j++;
+  }
+
+  return newArr;
+
+
+};
