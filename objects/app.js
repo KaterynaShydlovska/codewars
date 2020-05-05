@@ -660,3 +660,5 @@ function getPlanetName(id){
 }
 
 console.log(getPlanetName(5));
+
+// Challenge 15
