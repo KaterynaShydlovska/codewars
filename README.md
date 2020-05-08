@@ -20,6 +20,8 @@
 
    * [oblect](https://github.com/KaterynaShydlovska/codewars/blob/master/objects/app.js)
 
+   * [queu](https://github.com/KaterynaShydlovska/codewars/blob/master/queu/app.js)
+
    * [recursion](https://github.com/KaterynaShydlovska/codewars/blob/master/recursion/app.js)
    
    * [regex](https://github.com/KaterynaShydlovska/codewars/blob/master/regex/app.js)
