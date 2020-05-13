@@ -24,36 +24,39 @@
 // Example usage:
 
 // ```javascript
-var katzDeliLine = [];
-
-
+// var katzDeliLine = [];
 function takeANumber(currentLine, name){
- currentLine.push(name);
- return `Welcome  ${name}. You are number ${currentLine.length}  in line.`;
-  
-}
+    currentLine.push(name);
+    return `Welcome, ${name}. You are number ${currentLine.length} in line.`
+   }
+   
+   function nowServing(currentline, name){
+     let out = "Currently serving ";
+     if(currentline.length === 0){
+       return "There is nobody waiting to be served!"
+     }else{
+      return out + currentline.shift() + ".";
+     }
+    
+   }
+   
+   function currentLine(currentLine){
+     let str = 'The line is currently: ';
+   if(currentLine.length === 0){
+     return "The line is currently empty."
+   }else{
+     for(let i=0; i< currentLine.length; i++ ){
+      str += i+1 + '. ' + currentLine[i];
+      if(i !== currentLine.length -1){
+        str += ', '
+      }
+     }
+   }
+   
+   return str;
+     
+   }
 
-function nowServing(currentline, name){
-  if(currentline.length === 0){
-    return "There is nobody waiting to be served!";
-  }else{
-    return currentline.shift();
-  }
-}
-
-
-function currentLine(currentLine){
-  let str = 'The line is currently: ';
-if(currentLine.length === 0){
-  return "The line is currently empty."
-}else{
-  for(let i=0; i< currentLine.length; i++ ){
-   str += i+1 + '.' + currentLine[i] + ' ';
-  }
-}
-return str;
-}
-  
 takeANumber(katzDeliLine, "Ada"); // "Welcome, Ada. You are number 1 in line."
 takeANumber(katzDeliLine, "Grace"); // "Welcome, Grace. You are number 2 in line."
 takeANumber(katzDeliLine, "Kent"); // "Welcome, Kent. You are number 3 in line."
