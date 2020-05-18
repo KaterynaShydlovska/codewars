@@ -57,23 +57,68 @@ function takeANumber(currentLine, name){
      
    }
 
-takeANumber(katzDeliLine, "Ada"); // "Welcome, Ada. You are number 1 in line."
-takeANumber(katzDeliLine, "Grace"); // "Welcome, Grace. You are number 2 in line."
-takeANumber(katzDeliLine, "Kent"); // "Welcome, Kent. You are number 3 in line."
+// takeANumber(katzDeliLine, "Ada"); // "Welcome, Ada. You are number 1 in line."
+// takeANumber(katzDeliLine, "Grace"); // "Welcome, Grace. You are number 2 in line."
+// takeANumber(katzDeliLine, "Kent"); // "Welcome, Kent. You are number 3 in line."
 
-currentLine(katzDeliLine); // "The line is currently: 1. Ada, 2. Grace, 3. Kent"
+// currentLine(katzDeliLine); // "The line is currently: 1. Ada, 2. Grace, 3. Kent"
 
-nowServing(katzDeliLine); // "Currently serving Ada."
+// nowServing(katzDeliLine); // "Currently serving Ada."
 
-currentLine(katzDeliLine); // "The line is currently: 1. Grace, 2. Kent"
+// currentLine(katzDeliLine); // "The line is currently: 1. Grace, 2. Kent"
 
-takeANumber(katzDeliLine, "Matz"); // "Welcome, Matz. You are number 1 in line."
+// takeANumber(katzDeliLine, "Matz"); // "Welcome, Matz. You are number 1 in line."
 
-currentLine(katzDeliLine); // "The line is currently: 1. Grace, 2. Kent, 3. Matz"
+// currentLine(katzDeliLine); // "The line is currently: 1. Grace, 2. Kent, 3. Matz"
 
-nowServing(katzDeliLine); // "Currently serving Grace."
+// nowServing(katzDeliLine); // "Currently serving Grace."
 
-currentLine(katzDeliLine); // "The line is currently: 1. Kent, 2. Matz"
+// currentLine(katzDeliLine); // "The line is currently: 1. Kent, 2. Matz";
 ```
 
-// * <p data-visibility='hidden'>View <a href='https://learn.co/lessons/js-deli-counter' title='Deli Counter Lab'>Deli Counter Lab</a> on Learn.co and start learning to code for free.</p> */}
+
+
+
+
+var kittens = ['Milo', 'Otis', 'Garfield'] 
+//define your array here
+
+// Add your functions and code here
+
+function destructivelyAppendKitten(name){
+  kittens.push(name);
+  return kittens;
+}
+
+function destructivelyPrependKitten(name){
+  kittens.unshift(name);
+  return kittens;
+}
+
+function destructivelyRemoveLastKitten(name){
+  kittens.pop();
+  return kittens;
+}
+
+function destructivelyRemoveFirstKitten(name){
+  kittens.shift();
+  return kittens;
+}
+
+function appendKitten(name){
+return kittens.concat([name]);
+}
+
+function prependKitten(name){
+return [name].concat(kittens);
+}
+
+function removeLastKitten(name){
+return kittens.slice(0, kittens.length-1);
+}
+
+function removeFirstKitten(name){
+return kittens.slice(1, kittens.length);
+}
+
+
