@@ -521,3 +521,20 @@ var splitInParts = function (s, partLength) {
   }
   return parts.join(' ');
 }
+
+
+// Challenge 16
+// Write a method that takes one argument as name and then greets that name, capitalized and ends with an exclamation point.
+
+// Example:
+
+// "riley" --> "Hello Riley!"
+// "JACK"  --> "Hello Jack!"
+
+var greet = function(name) {
+  let newName = name.toLowerCase();
+  newName = newName.charAt(0).toUpperCase() + newName.slice(1)
+  
+  return `Hello ${newName}!`
+  
+  };
