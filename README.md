@@ -10,6 +10,8 @@
 
    * [array](https://github.com/KaterynaShydlovska/codewars/blob/master/array/app.js)
 
+   * [binaryheap](https://github.com/KaterynaShydlovska/codewars/blob/master/binary%20heaps/app.js)
+
    * [binarysearch](https://github.com/KaterynaShydlovska/codewars/blob/master/binarysearch/app.js)
 
    * [hashTable](https://github.com/KaterynaShydlovska/codewars/blob/master/hashTable/app.js)

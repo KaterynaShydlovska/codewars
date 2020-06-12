@@ -1,3 +1,4 @@
+// Challenge 1
 class MaxBinaryHeap {
     constructor(){
         this.values = [];
@@ -29,7 +30,7 @@ heap.insert(27);
 heap.insert(12);
 heap.insert(55);
 
-
+// Challenge 2
 class PriorityQueue {
     constructor(){
         this.values = [];
