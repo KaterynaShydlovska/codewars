@@ -14,6 +14,8 @@
 
    * [binarysearch](https://github.com/KaterynaShydlovska/codewars/blob/master/binarysearch/app.js)
 
+   *  [graph](https://github.com/KaterynaShydlovska/codewars/blob/master/graph/app.js)
+
    * [hashTable](https://github.com/KaterynaShydlovska/codewars/blob/master/hashTable/app.js)
    
    * [integers](https://github.com/KaterynaShydlovska/codewars/blob/master/integers/app.js)
