@@ -22,7 +22,7 @@
 
    * [linked list](https://github.com/KaterynaShydlovska/codewars/blob/master/linked%20list/app.js)
 
-   * [oblect](https://github.com/KaterynaShydlovska/codewars/blob/master/objects/app.js)
+   * [object](https://github.com/KaterynaShydlovska/codewars/blob/master/objects/app.js)
 
    * [queu](https://github.com/KaterynaShydlovska/codewars/blob/master/queu/app.js)
 
