@@ -687,3 +687,44 @@ var reverse = function(x) {
   if (ans < (Math.pow(2, 31) * -1) || ans > Math.pow(2, 31) - 1) return 0;
   return ans;
 };
+
+// Challenge 25
+
+// Write a function that reverses the bits in an integer.
+
+// For example, the number 417 is 110100001 in binary. Reversing the binary is 100001011 which is 267.
+
+// You can assume that the number is not negative.
+
+function reverseBits (n) {
+  return parseInt(n.toString(2).split("").reverse().join(""), 2);
+}
+
+
+// Challenge 26
+
+// Given an integer as input, can you round it to the next (meaning, "higher") 5?
+
+// Examples:
+
+// input:    output:
+// 0    ->   0
+// 2    ->   5
+// 3    ->   5
+// 12   ->   15
+// 21   ->   25
+// 30   ->   30
+// -2   ->   0
+// -5   ->   -5
+// etc.
+// Input may be any positive or negative integer (including 0).
+
+// You can assume that all inputs are valid integers.
+
+function roundToNext5(n){
+  if(n === 0){
+  return n;
+  } else {
+  return Math.ceil(n / 5) * 5; 
+  }
+}
