@@ -524,6 +524,7 @@ var splitInParts = function (s, partLength) {
 
 
 // Challenge 16
+
 // Write a method that takes one argument as name and then greets that name, capitalized and ends with an exclamation point.
 
 // Example:
@@ -538,3 +539,24 @@ var greet = function(name) {
   return `Hello ${newName}!`
   
   };
+
+
+// Challenge 17
+
+//   Say hello!
+
+// Write a function to greet a person. Function will take name as input and greet the person by saying hello. Return null/nil/None if input is empty string or null/nil/None.
+
+// Example:
+
+// greet("Niks") === "hello Niks!";
+// greet("") === null; // Return null if input is empty string
+// greet(null) === null; // Return null if input is null
+
+function greet(name) {
+  if(name === "" || name === null){
+  return null;
+  }else{
+  return "hello " + name + "!";
+  }
+ }
