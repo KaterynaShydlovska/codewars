@@ -1465,3 +1465,33 @@ function modifiedSum(a, n) {
     console.log(sum, nth)
     return nth - sum;
   }
+
+
+  // Challenge 46
+
+//   Write a function that gets a sequence and value and returns true/false depending on whether the variable exists in a multidimentional sequence.
+
+// Example:
+
+// locate(['a','b',['c','d',['e']]],'e'); // should return true
+// locate(['a','b',['c','d',['e']]],'a'); // should return true
+// locate(['a','b',['c','d',['e']]],'f'); // should return false
+
+var locate = function(arr,value){
+  console.log(arr)
+   if(arr.length === 0 || value === null){
+     return false;
+   } else{
+     for(let i =0; i< arr.length; i++){
+       if(arr[i] === value){
+         return true;
+       }else if(typeof(arr[i]) === 'object'){
+         if(locate(arr[i], value)){
+           return true;
+         }
+       }
+    
+   }
+   return false;
+ }
+ }
