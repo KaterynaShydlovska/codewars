@@ -728,3 +728,50 @@ function roundToNext5(n){
   return Math.ceil(n / 5) * 5; 
   }
 }
+
+//  Chalenge 27
+
+// No Story
+// No Description
+// Only by Thinking and Testing
+// Look at the result of testcase, guess the code!
+
+//Hmm.. 0 * 1 = 0
+// Test.assertEquals(testIt(0,1), 0)
+
+ //Yes, 1 * 2 = 2
+// Test.assertEquals(testIt(1,2), 2)
+
+// I know, 5 * 6 = 30
+// Test.assertEquals(testIt(5,6), 30)
+
+// What? 10 * 10 = 1 ?
+// Test.assertEquals(testIt(10,10), 1)
+
+// Damn.. 200 * 200 = 4, 0 was omitted ?
+// Test.assertEquals(testIt(200,200), 4)
+
+// Discover the mysteries of it ;-)
+// Test.assertEquals(testIt(12,34), 21)
+
+// You can solve it
+// Test.assertEquals(testIt(123,45),54)
+
+// And click ATTEMPT for more challenge..
+
+function testIt(a,b){
+  let newA = a.toString().split('');
+  let newB = b.toString().split('');
+  let sumA = 0;
+  let sumB = 0;
+  for(let i=0; i< newA.length; i++){
+    sumA+=parseInt(newA[i]);
+  }
+  for(let j=0; j< newB.length; j++){
+    sumB+=parseInt(newB[j]);
+  }
+  console.log(sumA, sumB)
+  return sumA* sumB;
+  }
+  
+  console.log(testIt(123,45));
