@@ -1,7 +1,7 @@
 'use strict';
 
 // Challeng 1
-
+//  O(2^n)
 // fibonacci
 n = 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144;
 
@@ -52,5 +52,30 @@ function fib(n) {
   }
 }
 
+//  The fast way to solve 
+// O(N)
+// not gonna work with huge nums sa 10 000
+
+function fib(n, memo=[]){
+  if(memo[n] !== undefined) return memo[n];
+
+  if(n<=2) return 1;
+  var res = fib(n-1, memo) + fib(n-2, memo);
+  memo[n]=res;
+  return res;
+}
+
+fib(10);
+
+//  or 
+
+function fib(n, memo=[undefined, 1,1]){
+  if(memo[n] !== undefined) return memo[n];
+  var res = fib(n-1, memo) + fib(n-2, memo);
+  memo[n]=res;
+  return res;
+}
+
+fib(10);
 
 
