@@ -561,4 +561,33 @@ function greet(name) {
   }
  }
 
+ // Challenge 18
+  
+//  Your task is to generate the Fibonacci sequence to n places, with each alternating value as "skip". For example:
 
+// "1 skip 2 skip 5 skip 13 skip 34"
+
+// Return the result as a string
+
+// You can presume that n is always a positive integer between (and including) 1 and 64.
+
+function skiponacci(n) {
+  console.log(n)
+  let arr =[];
+  if(n === 1){
+    return '1'
+  }
+  var a = 1, b = 0, temp;
+
+  while (n >= 1){
+    temp = a;
+    a = a + b;
+    b = temp;
+    arr.push(b);
+    n--;
+  }
+  for(let i=1; i< arr.length; i+=2){
+  arr[i] =' skip '
+  }
+  return arr.join('').trim()
+}
