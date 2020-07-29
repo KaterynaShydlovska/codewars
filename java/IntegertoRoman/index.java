@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 class Solution {
     public String intToRoman(int num) {
-        Map<Integer, String> map = new HashMap<>();
+        final Map<Integer, String> map = new HashMap<>();
         map.put(1, "I");
         map.put(5, "V");
         map.put(10, "X");
@@ -11,16 +11,16 @@ class Solution {
         map.put(500, "D");
         map.put(1000, "M");
         // do stuff
-        StringBuilder st = new StringBuilder();
-        while(num > 0) {
-            int curMax = getMax(map, num);
+        final StringBuilder st = new StringBuilder();
+        while (num > 0) {
+            final int curMax = getMax(map, num);
             st.append(map.get(curMax).charAt(0));
             num -= curMax;
         }
         return st.toString();
     }
-    
-    private int getMax(Map map, int number) {
+
+    private int getMax(final Map map, final int number) {
         int lastMax = 0;
         map.keySet().stream().forEach(k -> {
             if(lastMax == 0) {
