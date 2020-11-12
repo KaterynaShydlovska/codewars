@@ -1526,11 +1526,111 @@ var kidsWithCandies = function(candies, extraCandies) {
  
  for(let i =0; i< candies.length; i++ ){
      if(candies[i]+extraCandies >=  maxCand){
-         output.push('true')
+         output.push(true)
      }else{
-        output.push('false') 
+        output.push(false) 
      }
  }
  return output;
 
 };
+
+
+
+// Challenge 48
+
+// Given the array nums consisting of 2n elements in the form [x1,x2,...,xn,y1,y2,...,yn].
+
+// Return the array in the form [x1,y1,x2,y2,...,xn,yn].
+
+ 
+
+// Example 1:
+
+// Input: nums = [2,5,1,3,4,7], n = 3
+// Output: [2,3,5,4,1,7] 
+// Explanation: Since x1=2, x2=5, x3=1, y1=3, y2=4, y3=7 then the answer is [2,3,5,4,1,7].
+// Example 2:
+
+// Input: nums = [1,2,3,4,4,3,2,1], n = 4
+// Output: [1,4,2,3,3,2,4,1]
+// Example 3:
+
+// Input: nums = [1,1,2,2], n = 2
+// Output: [1,2,1,2]
+
+var shuffle = function(nums, n) {
+  let out = [];
+  let i = 0;
+  let j = n;
+  while(i<n) {
+      out.push(nums[i]);
+      out.push(nums[j]);
+      i++;
+      j++;
+  }
+  return out;
+};
+
+
+// Challenge 49
+
+// Given an array of integers nums.
+
+// A pair (i,j) is called good if nums[i] == nums[j] and i < j.
+
+// Return the number of good pairs.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,2,3,1,1,3]
+// Output: 4
+// Explanation: There are 4 good pairs (0,3), (0,4), (3,4), (2,5) 0-indexed.
+// Example 2:
+
+// Input: nums = [1,1,1,1]
+// Output: 6
+// Explanation: Each pair in the array are good.
+// Example 3:
+
+// Input: nums = [1,2,3]
+// Output: 0
+
+
+var numIdenticalPairs = function(nums) {
+  let pairs = 0;
+  let i = 0;
+  while(i< nums.length -1) {
+      let j = i+1;
+      while (j < nums.length) {
+          if (nums[i] === nums[j] && i < j) {
+              pairs++
+          }
+      j++;
+      }
+      i++
+  }
+  return pairs;
+}
+
+  // or
+//   var numIdenticalPairs = function(nums) {
+//   let pairs = 0;
+//   let map = {};
+//   let i = 0;
+//   while (i < nums.length){
+//       let curent = nums[i];
+//       if(!map[curent]) {
+//           map[curent] = 1;
+//           console.log(map);
+//       } else {
+//           pairs += map[curent];
+//           map[curent] += 1;
+//           console.log(map);
+//       }
+//       i++
+//   }
+//   return pairs;
+// };
